@@ -34,12 +34,12 @@ type: page
 
 * GitHub：[shocking119](https://github.com/shocking119)
 * email：shocking119@outlook.com
-* [Weibo](http://weibo.com/3115521wh)
-* [知乎]()
-* [Facebook](https://www.facebook.com/gaohaoyang.water)
-* [Twitter](https://twitter.com/gaohaoyang126)
-* [豆瓣](https://www.douban.com/people/42525035/)
-* [豆瓣音乐人-浩阳的小站](https://site.douban.com/haoyangaiyinyue/)
+* [Weibo](http://weibo.com/)
+* [知乎](https://zhihu.com)
+* [Facebook](https://www.facebook.com/)
+* [Twitter](https://twitter.com/)
+* [豆瓣](https://www.douban.com/)
+* [豆瓣音乐人-浩阳的小站](https://site.douban.com/)
 
 ## 关于本站
 
@@ -89,12 +89,12 @@ type: page
 * `[^]` 使用 Masonry 重写了 Demo 页中的瀑布流布局，响应式交互体验更好
 * `[-]` 去除了 jQuery 和 BootStrap，使得加载速度更快
 
-* 2016.3-2016.4 进行了一次大的改版和重构，详见 [README](https://github.com/Gaohaoyang/gaohaoyang.github.io/blob/master/README.md) 和博文 [对这个 jekyll 博客主题的改版和重构](http://shocking119.github.io//2016/03/12/jekyll-theme-version-2.0/)
+* 2016.3-2016.4 进行了一次大的改版和重构，详见 [README](https://github.com/shocking119/shocking119.github.io/blob/master/README.md) 和博文 [对这个 jekyll 博客主题的改版和重构](http://shocking119.github.io//2016/03/12/jekyll-theme-version-2.0/)
 * 2015.3-2015.4 完成了这个博客主题的第一版。
 
 ## 友情链接
 
-[羡辙杂俎](http://zhangwenli.com/blog) \| [Anotherhome](https://www.anotherhome.net) \| [Reverland](http://reverland.org/) \| [ZhiLi](http://lizhipower.github.io/) \| [Simmer](http://simmer-jun.github.io/) \| [awthink](http://awthink.net/) \| [Aralic](http://aralic.github.io/) \| [zchen9](http://www.chen9.info/) \| [wuhuaji](http://wuhuaji.me/) \| [lisheng](http://www.lishengcn.cn/) \| [薛彬XueBin](http://axuebin.com/blog/) \| [TBOOX](http://www.tboox.org/cn/) \|  [Ling](http://linglinyp.com/)
+[羡辙杂俎](http://zhangwenli.com/blog) \| [Anotherhome](https://www.anotherhome.net) \| [Reverland](http://reverland.org/) \| [ZhiLi](http://lizhipower.github.io/) \| [Simmer](http://simmer-jun.github.io/) \| [awthink](http://awthink.net/) \| [Aralic](http://aralic.github.io/) \| [zchen9](http://www.chen9.info/) \| [wuhuaji](http://wuhuaji.me/) \| [lisheng](http://www.lishengcn.cn/) \| [薛彬XueBin](http://axuebin.com/blog/) \| [TBOOX](http://www.tboox.org/cn/) \|  [Ling](http://linglinyp.com/)\|[HyG](gaohaoyang.github.io)
 
 ## Comments
 
