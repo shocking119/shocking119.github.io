@@ -107,7 +107,9 @@ author: Utachi
 		
 	* 分配服务器证书,打开 IIS8.0 管理器面板,找到待部署证书的站点,点击“绑定”。
 		• 设置参数
+		
 		• 选择“绑定”->“添加”->“类型选择 https” ->“端口 443” ->“ssl 证书【导入的证书名称】” ->“确定”,SSL 缺省端口为 443 端口(请不要随便修改。 如果您使用其他端口如:8443,则访问时必须输入:https://www.domain.com:8443)。
+		
 	* 其他windows 配置SSL证书的问题，请参考视频：
 		[https://help.aliyun.com/video_detail/54215.html?spm=5176.2020520163.cas.158.21ea2b7aWb5BAu](https://help.aliyun.com/video_detail/54215.html?spm=5176.2020520163.cas.158.21ea2b7aWb5BAu)
 
