@@ -17,11 +17,14 @@ author: Utachi
     server {
         listen 443;
         server_name localhost;
+        #localhost 設置成你的主機名
         ssl on;
         root html;
         index index.html index.htm;
         ssl_certificate   cert/1536195675718.pem;
+        #這裡是證書路徑，根據你上傳位置修改，也可填寫絕對路徑
         ssl_certificate_key  cert/1536195675718.key;
+        #同上
         ssl_session_timeout 5m;
         ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:ECDHE:ECDH:AES:HIGH:!NULL:!aNULL:!MD5:!ADH:!RC4;
         ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
