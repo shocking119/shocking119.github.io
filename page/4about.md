@@ -11,10 +11,8 @@ type: page
 
 ## 关于我
 
-<iframe src="https://github.com/shocking119" style="border: 0;height: 142px;width: 200px;overflow: hidden;" frameBorder="0"></iframe>
 
-* 2016.6.30 入职太极计算机股份
-* 2018.4.21 山东云小兵_阿里云技术服务交付
+* linux運維工程師一枚，熱愛開源技術，長於stack、容器虛擬化
 
 
 ## 联系我
@@ -22,11 +20,7 @@ type: page
 * GitHub：[shocking119](https://github.com/shocking119)
 * email：shocking119@outlook.com
 * [Weibo](http://weibo.com/)
-* [知乎](https://zhihu.com)
-* [Facebook](https://www.facebook.com/)
-* [Twitter](https://twitter.com/)
-* [豆瓣](https://www.douban.com/)
-* [豆瓣音乐人](https://site.douban.com/)
+
 
 ## 关于本站
 
