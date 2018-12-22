@@ -3,7 +3,7 @@ layout: post
 title:  "vscode 插件 markdown-schedule-snippet"
 categories: JavaScript
 tags:  vscode
-author: HyG
+author: Utachi
 ---
 
 * content
