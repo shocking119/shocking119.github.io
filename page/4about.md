@@ -14,7 +14,7 @@ type: page
 <iframe src="https://github.com/shocking119" style="border: 0;height: 142px;width: 200px;overflow: hidden;" frameBorder="0"></iframe>
 
 * 2016.6.30 入职太极计算机股份
-* 2018.4.21 山东云小兵负责阿里云技术服务交付
+* 2018.4.21 山东云小兵_阿里云技术服务交付
 
 
 ## 联系我
@@ -46,7 +46,7 @@ type: page
 
 * `[+]` 在文章页中添加上一篇和下一篇文章链接。
 * `[^]` 修改 font-family 顺序，避免微软雅黑将单引号解析为全角。
-* `[^]` 修复标签云算法中被除数为零的 bug。[#26](https://github.com/Gaohaoyang/gaohaoyang.github.io/issues/26), [#28](https://github.com/shocking119/shocking119.github.io/issues/28), [#30](https://github.com/shocking119/shocking119.github.io/issues/30)
+* `[^]` 修复标签云算法中被除数为零的 bug。[#26](https://github.com/shocking119/shocking119.github.io/issues/26), [#28](https://github.com/shocking119/shocking119.github.io/issues/28), [#30](https://github.com/shocking119/shocking119.github.io/issues/30)
 
 *2016.5.11 v2.0.1*
 
@@ -76,12 +76,12 @@ type: page
 * `[^]` 使用 Masonry 重写了 Demo 页中的瀑布流布局，响应式交互体验更好
 * `[-]` 去除了 jQuery 和 BootStrap，使得加载速度更快
 
-* 2016.3-2016.4 进行了一次大的改版和重构，详见 [README](https://github.com/shocking119/shocking119.github.io/blob/master/README.md) 和博文 [对这个 jekyll 博客主题的改版和重构](http://shocking119.github.io//2016/03/12/jekyll-theme-version-2.0/)
+* 2016.3-2016.4 进行了一次大的改版和重构，详见 [README](https://github.com/shocking119/shocking119.github.io/blob/master/README.md) 和博文 [对这个 jekyll 博客主题的改版和重构](https://utachi.cn//2016/03/12/jekyll-theme-version-2.0/)
 * 2015.3-2015.4 完成了这个博客主题的第一版。
 
 ## 友情链接
 
-[羡辙杂俎](http://zhangwenli.com/blog) \| [Anotherhome](https://www.anotherhome.net) \| [Reverland](http://reverland.org/) \| [ZhiLi](http://lizhipower.github.io/) \| [Simmer](http://simmer-jun.github.io/) \| [awthink](http://awthink.net/) \| [Aralic](http://aralic.github.io/) \| [zchen9](http://www.chen9.info/) \| [wuhuaji](http://wuhuaji.me/) \| [lisheng](http://www.lishengcn.cn/) \| [薛彬XueBin](http://axuebin.com/blog/) \| [TBOOX](http://www.tboox.org/cn/) \|  [Ling](http://linglinyp.com/) \| [HyG](gaohaoyang.github.io)
+[羡辙杂俎](http://zhangwenli.com/blog) \| [Anotherhome](https://www.anotherhome.net) \| [Reverland](http://reverland.org/) \| [ZhiLi](http://lizhipower.github.io/) \| [Simmer](http://simmer-jun.github.io/) \| [awthink](http://awthink.net/) \| [Aralic](http://aralic.github.io/) \| [zchen9](http://www.chen9.info/) \| [wuhuaji](http://wuhuaji.me/) \| [lisheng](http://www.lishengcn.cn/) \| [薛彬XueBin](http://axuebin.com/blog/) \| [TBOOX](http://www.tboox.org/cn/) \|  [Ling](http://linglinyp.com/) \| [HyG](shocking119.github.io)
 
 ## Comments
 

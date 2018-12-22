@@ -19,7 +19,7 @@ tags: Baidu JavaScript
 
 掌握JavaScript基础知识，能够使用JavaScript编写一些复杂度不大的交互功能。
 
-**任务：** [JavaScript基础](https://github.com/Gaohaoyang/ife/tree/master/task/task0002)   
+**任务：** [JavaScript基础](https://github.com/shocking119/ife/tree/master/task/task0002)   
 
 做完任务一的时候深深地感觉到自己的基础非常的薄弱，在这里再次感谢一下百度前端技术学院，做任务的时候深刻理解了自己平时掌握不牢固的内容，比如浮动、BFC、等高布局等。继续加油吧！
 
@@ -1340,8 +1340,8 @@ function ajax(url, options) {
 
 ### 实现
 
-* [代码](https://github.com/Gaohaoyang/ife/tree/master/task/task0002/work/Gaohaoyang)
-* [在线demo](http://gaohaoyang.github.io/ife/task/task0002/work/Gaohaoyang/task0002_1.html)
+* [代码](https://github.com/shocking119/ife/tree/master/task/task0002/work/shocking119)
+* [在线demo](https://utachi.cn/ife/task/task0002/work/shocking119/task0002_1.html)
 
 
 ## 练习2：倒计时
@@ -1371,8 +1371,8 @@ function ajax(url, options) {
 
 ### 实现
 
-* [代码](https://github.com/Gaohaoyang/ife/tree/master/task/task0002/work/Gaohaoyang)
-* [在线demo](http://gaohaoyang.github.io/ife/task/task0002/work/Gaohaoyang/task0002_2.html)
+* [代码](https://github.com/shocking119/ife/tree/master/task/task0002/work/shocking119)
+* [在线demo](https://utachi.cn/ife/task/task0002/work/shocking119/task0002_2.html)
 
 
 ## 练习3：图片轮播
@@ -1400,8 +1400,8 @@ function ajax(url, options) {
 
 ### 实现
 
-* [代码](https://github.com/Gaohaoyang/ife/tree/master/task/task0002/work/Gaohaoyang)
-* [在线demo](http://gaohaoyang.github.io/ife/task/task0002/work/Gaohaoyang/task0002_3.html)
+* [代码](https://github.com/shocking119/ife/tree/master/task/task0002/work/shocking119)
+* [在线demo](https://utachi.cn/ife/task/task0002/work/shocking119/task0002_3.html)
 
 ### 关于变速运动
 
@@ -1537,8 +1537,8 @@ function OnPropChanged(event) {
 
 ### 实现
 
-* [代码](https://github.com/Gaohaoyang/ife/tree/master/task/task0002/work/Gaohaoyang)
-* [在线demo](http://gaohaoyang.github.io/ife/task/task0002/work/Gaohaoyang/task0002_4.html)
+* [代码](https://github.com/shocking119/ife/tree/master/task/task0002/work/shocking119)
+* [在线demo](https://utachi.cn/ife/task/task0002/work/shocking119/task0002_4.html)
 
 
 
@@ -1565,14 +1565,14 @@ function OnPropChanged(event) {
 
 ### 实现
 
-* [代码](https://github.com/Gaohaoyang/ife/tree/master/task/task0002/work/Gaohaoyang)
-* [在线demo](http://gaohaoyang.github.io/ife/task/task0002/work/Gaohaoyang/task0002_5.html)
+* [代码](https://github.com/shocking119/ife/tree/master/task/task0002/work/shocking119)
+* [在线demo](https://utachi.cn/ife/task/task0002/work/shocking119/task0002_5.html)
 
 
 ## 最终作品
 
-* [代码](https://github.com/Gaohaoyang/ife/tree/master/task/task0002/work/Gaohaoyang)
-* [在线 Demo](http://gaohaoyang.github.io/ife/task/task0002/work/Gaohaoyang/index.html)
+* [代码](https://github.com/shocking119/ife/tree/master/task/task0002/work/shocking119)
+* [在线 Demo](https://utachi.cn/ife/task/task0002/work/shocking119/index.html)
 
 
 ## Update

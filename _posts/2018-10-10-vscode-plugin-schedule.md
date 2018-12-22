@@ -77,7 +77,7 @@ week
 
 ![](https://user-gold-cdn.xitu.io/2018/10/10/1665d564192bc6bb?w=256&h=256&f=png&s=51734)
 
-这个插件仓库地址 [https://github.com/Gaohaoyang/markdown-schedule-snippet](https://github.com/Gaohaoyang/markdown-schedule-snippet)
+这个插件仓库地址 [https://github.com/gaohaoyang/markdown-schedule-snippet](https://github.com/shocking119/markdown-schedule-snippet)
 
 欢迎大家使用，同时也欢迎小伙伴们为这个仓库贡献一些其他有趣的 markdown snippet，欢迎你的 pr。
 
