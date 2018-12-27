@@ -10,9 +10,6 @@ author: Utachi
 * content
 {:toc}
 
-
-
-
 ## Nginx
 * **打开 Nginx 安装目录下 conf 目录，将下载好的证书解压；**
        修改nginx.conf 文件，找到server定义，或者单独include一个conf，填写vhost。 

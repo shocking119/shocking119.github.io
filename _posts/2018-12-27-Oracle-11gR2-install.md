@@ -9,8 +9,6 @@ author: Utachi
 * content
 {:toc}
 
-
-
 # 一.安装前准备
 
 ## 1.内存及swap要求
