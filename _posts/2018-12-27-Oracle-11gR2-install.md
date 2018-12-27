@@ -24,7 +24,7 @@ author: Utachi
    ```
    3.修改主机名，及ip对应关系
    --设置主机名，也可以直接修改配置文件/etc/sysconfig/network，不过这个是重启之后才起作用
-   ```commandline
+   ```bash
     hostnamectl set-hostname DB_2
    ```   
    4.关闭Selinux
@@ -56,8 +56,8 @@ author: Utachi
     # sysctl -p  #使配置生效
    ```
    2.用户的限制文件/etc/security/limits.conf 
-   ```buildoutcfg
-    #vim /etc/security/limits.conf 在文件后增加
+   ```bash
+     # vim /etc/security/limits.conf 在文件后增加
      oracle           soft    nproc           2047
      oracle           hard    nproc           16384
      oracle           soft    nofile          1024
@@ -66,9 +66,9 @@ author: Utachi
    ```
     
    --修改/etc/pam.d/login文件，增加如下：
-   ```commandline
+   ```bash
    session  required   /lib64/security/pam_limits.so  
-                        #64位系统，千万别写成/lib/security/pam_limits.so，否则导致无法登录
+                       //64位系统，千万别写成/lib/security/pam_limits.so，否则导致无法登录
    session  required   pam_limits.so
 
    ```
@@ -76,7 +76,7 @@ author: Utachi
 # 三.创建用户及组
 
 * 创建用户及组
-    ```commandline
+    ```bash
     #groupadd oinstall 
     #groupadd dba
     #useradd -g oinstall -G dba -d /home/u11 oracle
@@ -89,27 +89,27 @@ author: Utachi
     mkdir -p /opt/app/oracle/product/11.2.0/dbhome_1
     ```
 * 数据文件存放目录
-    ```commandline
-    #mkdir -p /opt/app/oracle/oradata
-    ```
+  ```bash
+  mkdir -p /opt/app/oracle/oradata
+  ```
 * 数据恢复目录
-    ```commandline
+    ```bash
     #mkdir -p /opt/app/oracle/recovery_area
     ```
 
 * 数据库创建及使用过程中的日志目录
-    ```commandline
+    ```bash
     #mkdir -p /opt/app/oracle/oraInventory
     ```
 
 * 修改安装目录权限
-    ```commandline
+    ```bash
     #chown -R oracle:oinstall /opt/app/oracle
     #chmod 775 /opt/app/oracle
     ```
 
 * 登录oracle用户，设置环境变量
-    ```commandline
+    ```bash
     #su - oracle
     $view .bash_profile
     　　export ORACLE_BASE=/opt/app/oracle
@@ -126,7 +126,7 @@ author: Utachi
     
 #  四.安装oracle
 * 1.安装依赖包
-    ```commandline
+    ```bash
     # yum -y install gcc gcc-c++ make binutilscompat-libstdc++-33 elfutils-libelf elfutils-libelf-develglibc glibc-commonglibc-devel libaio libaio-devel libgcclibstdc++libstdc++-devel unixODBC unixODBC-devel ksh
     或
     # yum -y installbinutils compat-libstdc++-33 compat-libstdc++-33.i686 
@@ -136,7 +136,7 @@ author: Utachi
     sysstat unixODBC unixODBC-devel
     ```
 * 2.解压安装包
-    ```commandline
+    ```bash
     tar zxvf ***.bz2
     ```
 * 3.数据库安装
@@ -149,7 +149,7 @@ author: Utachi
     
 * 4.修改配置文件db_install.rsp，并安装
   [Oracle 11gR2 db_install.rsp详解](http://www.cnblogs.com/yingsong/p/6031452.html)
-    ```commandline
+    ```bash
     oracle.install.option=INSTALL_DB_SWONLY
     ORACLE_HOSTNAME=DB_m2
     UNIX_GROUP_NAME=oinstall
@@ -168,18 +168,18 @@ author: Utachi
     ```
 * 5.登录oracle用户，执行安装
 
-    ```commandline
+    ```bash
       $./runInstaller-silent -responseFile /home/u11/database/response/db_install.rsp 
     ```    
     安装过程中，如果提示[WARNING]不必理会，此时安装程序仍在进行，如果出现[FATAL]，则安装程序已经停止了。
     打开另一个终端，执行命令
-    ```commandline
+    ```bash
       #tail -100 f /u01/app/oracle/oraInventory/logs/installActions......log
     ```
     可以实时跟踪查看安装日志，了解安装的进度。
     当出现以下配置脚本需要以 "root" 用户的身份执行。
  
-    ```commandline
+    ```bash
       /u01/app/oracle/oraInventory/orainstRoot.sh
       /u01/app/oracle/product/11.2.0/db_1/root.sh
     
@@ -197,7 +197,7 @@ author: Utachi
    ```  
    出现这个的话，说明已安装成功，则需要按提示操作，操作完返回Enter成功
 * 6.配置监听配置文件response/netca.rsp
-    ```commandline
+    ```bash
     $netca /silent /responsefile response/netca.rsp
     
     正在对命令行参数进行语法分析:
@@ -217,7 +217,7 @@ author: Utachi
     成功运行后，在/opt/oracle/11.2.0/network/admin目录下生成sqlnet.ora和listener.ora两个文件。
     
     完成后通过命令“netstat -tlnp”可以查看到1521端口已开
-    ```commandline
+    ```bash
        tcp  0   0 :::1521        :::*      LISTEN      5477/tnslsnr
     ```
     
@@ -235,7 +235,7 @@ author: Utachi
      TOTALMEMORY = "5120"    //oracle内存5120MB   
     ```
     配置完之后，执行命令:
-    ```commandline
+    ```bash
      
      $dbca -silent -responseFile /etc/dbca.rsp
     
