@@ -36,8 +36,7 @@ setenforce 0
 ```
 ## 5.下载oracle11gR2
    
-官网下载地址：[http://www.oracle.com/technetwork/database/enterprise-edition/downloads/112010-linx8664soft-100572.html](http:#www.oracle.com/technetwork/database/enterprise-edition/downloads/112010-linx8664soft-100572.html)
-
+官网下载地址：[https://www.oracle.com/technetwork/database/enterprise-edition/downloads/index.html](https://www.oracle.com/technetwork/database/enterprise-edition/downloads/index.html)
 # 二.修改内核参数
     
 ## 1./etc/sysctl.conf 
@@ -129,7 +128,7 @@ $source .bash_profile
           #使设置生效
 ```
     
-#  四.安装oracle
+# 四.安装oracle
 
 ##  1.安装依赖包
 
