@@ -37,6 +37,7 @@ setenforce 0
 ## 5.下载oracle11gR2
    
 官网下载地址：[https://www.oracle.com/technetwork/database/enterprise-edition/downloads/index.html](https://www.oracle.com/technetwork/database/enterprise-edition/downloads/index.html)
+
 # 二.修改内核参数
     
 ## 1./etc/sysctl.conf 
@@ -76,6 +77,7 @@ session  required   /lib64/security/pam_limits.so
 session  required   pam_limits.so
 
 ```
+ 
  
 # 三.创建用户及组
 
@@ -127,6 +129,7 @@ $view .bash_profile
 $source .bash_profile   
           #使设置生效
 ```
+    
     
 # 四.安装oracle
 
@@ -260,5 +263,6 @@ $dbca -silent -responseFile /etc/dbca.rsp
 查看日志文件
 $ cat /u01/app/oracle/cfgtoollogs/dbca/Utachi/Utachi.log
 ```
+
 # 五. 开启归档模式，制定归档目录
 [开启归档模式，归档日志已满处理](http://www.cnblogs.com/yingsong/p/6037531.html)
