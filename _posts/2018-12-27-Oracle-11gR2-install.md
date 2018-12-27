@@ -14,12 +14,12 @@ author: Utachi
 # 一.安装前准备
    1.内存及swap要求
      至于swap如何添加，后文将提到
-   ```
+   ```bash
         grep MemTotal /proc/meminfo
         grep SwapTotal /proc/meminfo
    ```
    2.硬盘空间
-   ```
+   ```bash
         df -h
    ```
    3.修改主机名，及ip对应关系
@@ -28,7 +28,7 @@ author: Utachi
     hostnamectl set-hostname DB_2
    ```   
    4.关闭Selinux
-   ```
+   ```bash
     # sed -i "s/SELINUX=enforcing/SELINUX=disabled/"/etc/selinux/config  
     # setenforce 0
    ```
@@ -38,7 +38,7 @@ author: Utachi
 
 # 二.修改内核参数
     
-   1./etc/sysctl.conf 
+1./etc/sysctl.conf 
      --修改或添加，具体参数意思，请百度或参考oracle官网解释
      #vim  /etc/sysctl.conf  
    ```bash
@@ -55,7 +55,7 @@ author: Utachi
     fs.aio-max-nr = 1048576
     # sysctl -p  #使配置生效
    ```
-   2.用户的限制文件/etc/security/limits.conf 
+2.用户的限制文件/etc/security/limits.conf 
    ```bash
      # vim /etc/security/limits.conf 在文件后增加
      oracle           soft    nproc           2047
@@ -65,7 +65,7 @@ author: Utachi
      oracle           soft    stack           10240
    ```
     
-   --修改/etc/pam.d/login文件，增加如下：
+--修改/etc/pam.d/login文件，增加如下：
    ```bash
    session  required   /lib64/security/pam_limits.so  
                        //64位系统，千万别写成/lib/security/pam_limits.so，否则导致无法登录
