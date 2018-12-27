@@ -15,22 +15,22 @@ author: Utachi
    1.内存及swap要求
      至于swap如何添加，后文将提到
    ```bash
-        grep MemTotal /proc/meminfo
-        grep SwapTotal /proc/meminfo
+   grep MemTotal /proc/meminfo
+   grep SwapTotal /proc/meminfo
    ```
    2.硬盘空间
    ```bash
-        df -h
+   df -h
    ```
    3.修改主机名，及ip对应关系
    --设置主机名，也可以直接修改配置文件/etc/sysconfig/network，不过这个是重启之后才起作用
    ```bash
-    hostnamectl set-hostname DB_2
+   hostnamectl set-hostname DB_2
    ```   
    4.关闭Selinux
    ```bash
-    # sed -i "s/SELINUX=enforcing/SELINUX=disabled/"/etc/selinux/config  
-    # setenforce 0
+   sed -i "s/SELINUX=enforcing/SELINUX=disabled/"/etc/selinux/config  
+   setenforce 0
    ```
    5.下载oracle11gR2
    
