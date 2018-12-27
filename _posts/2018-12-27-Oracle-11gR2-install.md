@@ -34,7 +34,7 @@ author: Utachi
    ```
    5.下载oracle11gR2
    
-   官网下载地址：[http://www.oracle.com/technetwork/database/enterprise-edition/downloads/112010-linx8664soft-100572.html]
+   官网下载地址：[http://www.oracle.com/technetwork/database/enterprise-edition/downloads/112010-linx8664soft-100572.html](http://www.oracle.com/technetwork/database/enterprise-edition/downloads/112010-linx8664soft-100572.html)
 
 # 二.修改内核参数
     
