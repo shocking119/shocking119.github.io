@@ -178,22 +178,22 @@ DECLINE_SECURITY_UPDATES=true    #一定要设为true
 ```
 ##  5.登录oracle用户，执行安装
 
-    ```bash
-      $./runInstaller-silent -responseFile /home/u11/database/response/db_install.rsp 
-    ```    
-    安装过程中，如果提示[WARNING]不必理会，此时安装程序仍在进行，如果出现[FATAL]，则安装程序已经停止了。
-    打开另一个终端，执行命令
-    ```bash
-      #tail -100 f /u01/app/oracle/oraInventory/logs/installActions......log
-    ```
-    可以实时跟踪查看安装日志，了解安装的进度。
-    当出现以下配置脚本需要以 "root" 用户的身份执行。
- 
 ```bash
-  /u01/app/oracle/oraInventory/orainstRoot.sh
-  /u01/app/oracle/product/11.2.0/db_1/root.sh
+  $./runInstaller-silent -responseFile /home/u11/database/response/db_install.rsp 
+```    
+安装过程中，如果提示[WARNING]不必理会，此时安装程序仍在进行，如果出现[FATAL]，则安装程序已经停止了。
+打开另一个终端，执行命令
+```bash
+  #tail -100 f /u01/app/oracle/oraInventory/logs/installActions......log
+```
+可以实时跟踪查看安装日志，了解安装的进度。
+当出现以下配置脚本需要以 "root" 用户的身份执行。
 
-要执行配置脚本, 请执行以下操作:
+```bash
+   /u01/app/oracle/oraInventory/orainstRoot.sh
+   /u01/app/oracle/product/11.2.0/db_1/root.sh
+
+   要执行配置脚本, 请执行以下操作:
     
    1. 打开一个终端窗口
      
