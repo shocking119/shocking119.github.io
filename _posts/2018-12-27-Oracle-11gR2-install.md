@@ -38,7 +38,7 @@ setenforce 0
 ```
 ## 5.下载oracle11gR2
    
-官网下载地址：[http://www.oracle.com/technetwork/database/enterprise-edition/downloads/112010-linx8664soft-100572.html](http://www.oracle.com/technetwork/database/enterprise-edition/downloads/112010-linx8664soft-100572.html)
+官网下载地址：[http://www.oracle.com/technetwork/database/enterprise-edition/downloads/112010-linx8664soft-100572.html](http:#www.oracle.com/technetwork/database/enterprise-edition/downloads/112010-linx8664soft-100572.html)
 
 # 二.修改内核参数
     
@@ -174,7 +174,7 @@ oracle.install.db.config.starterdb.characterSet=AL32UTF8
 oracle.install.db.config.starterdb.storageType=FILE_SYSTEM_STORAGE
 oracle.install.db.config.starterdb.fileSystemStorage.dataLocation=/opt/app/oracle/oradata
 oracle.install.db.config.starterdb.fileSystemStorage.recoveryLocation=/opt/app/oracle/recovery_data
-DECLINE_SECURITY_UPDATES=true    //一定要设为true
+DECLINE_SECURITY_UPDATES=true    #一定要设为true
 ```
 ##  5.登录oracle用户，执行安装
 
@@ -215,18 +215,18 @@ response/netca.rsp
 $netca /silent /responsefile response/netca.rsp
 
 正在对命令行参数进行语法分析:
- 参数"silent" = true
- 参数"responsefile" = /home/oracle/response/netca.rsp
- 完成对命令行参数进行语法分析。
- Oracle Net Services 配置:
- 完成概要文件配置。
- Oracle Net 监听程序启动:
-  正在运行监听程序控制:
-    /opt/oracle/11.2.0/bin/lsnrctl start LISTENER
-  监听程序控制完成。
-  监听程序已成功启动。
- 监听程序配置完成。
- 成功完成 Oracle Net Services 配置
+参数"silent" = true
+参数"responsefile" = /home/oracle/response/netca.rsp
+完成对命令行参数进行语法分析。
+Oracle Net Services 配置:
+完成概要文件配置。
+Oracle Net 监听程序启动:
+正在运行监听程序控制:
+/opt/oracle/11.2.0/bin/lsnrctl start LISTENER
+监听程序控制完成。
+监听程序已成功启动。
+监听程序配置完成。
+成功完成 Oracle Net Services 配置
 ```    
 成功运行后，在/opt/oracle/11.2.0/network/admin目录下生成sqlnet.ora和listener.ora两个文件。
 完成后通过命令“netstat -tlnp”可以查看到1521端口已开
@@ -237,15 +237,15 @@ $netca /silent /responsefile response/netca.rsp
 ## 7.修改配置文件response/dbca.rsp，静默建立新库
    
 ```
-RESPONSEFILE_VERSION = "11.2.0"                     //不能更改
+RESPONSEFILE_VERSION = "11.2.0"                     #不能更改
 OPERATION_TYPE = "createDatabase"
-GDBNAME = "utachi.cn"                               //全局数据库的名字=SID+主机域名
-SID = "hello"                                       //对应的实例名字
-TEMPLATENAME = "General_Purpose.dbc"                //建库用的模板文件
-DATAFILEDESTINATION = /opt/oracle/oradata           //数据文件存放目录
-RECOVERYAREADESTINATION=/opt/oracle/recovery_data   //恢复数据存放目录
-CHARACTERSET = "AL32UTF8"                           //字符集，重要!!! 建库后一般不能更改，所以建库前要确定清楚。
-TOTALMEMORY = "5120"                                //oracle内存5120MB   
+GDBNAME = "utachi.cn"                               #全局数据库的名字=SID+主机域名
+SID = "hello"                                       #对应的实例名字
+TEMPLATENAME = "General_Purpose.dbc"                #建库用的模板文件
+DATAFILEDESTINATION = /opt/oracle/oradata           #数据文件存放目录
+RECOVERYAREADESTINATION=/opt/oracle/recovery_data   #恢复数据存放目录
+CHARACTERSET = "AL32UTF8"                           #字符集，重要!!! 建库后一般不能更改，所以建库前要确定清楚。
+TOTALMEMORY = "5120"                                #oracle内存5120MB   
 ```
 配置完之后，执行命令:
 ```bash
