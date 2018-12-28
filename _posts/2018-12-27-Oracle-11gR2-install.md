@@ -153,7 +153,7 @@ yum -y install gcc gcc-c++ make binutilscompat-libstdc++-33 elfutils-libelf elfu
 ## 2.解压安装包
 
 ```bash
-unzip linux.x64_11gR2_database_1of*.zip
+unzip linux.x64_11gR2_database_*.zip
 ```
 ## 3.数据库安装
 
