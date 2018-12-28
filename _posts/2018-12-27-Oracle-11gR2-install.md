@@ -212,13 +212,10 @@ DECLINE_SECURITY_UPDATES=true    #一定要设为true
    要执行配置脚本, 请执行以下操作:
     
    1. 打开一个终端窗口
-     
    2. 以 "root" 身份登录
-     
    3. 运行脚本
-     
    4. 返回此窗口并按 "Enter" 键继续
-     
+   
       Successfully Setup Software.
 ```
   
