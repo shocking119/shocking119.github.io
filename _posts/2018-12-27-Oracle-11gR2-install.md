@@ -38,7 +38,7 @@ tmpfs           3.9G  417M  3.5G  11% /run
 
 ```bash
 hostnamectl set-hostname utachi.cn
-echo “utachi.cn” >> /etc/hosts
+echo "192.168.1.140  utachi.cn" >> /etc/hosts
 ```   
 ## 1.4 关闭Selinux
 
