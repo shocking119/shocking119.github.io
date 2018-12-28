@@ -35,8 +35,10 @@ tmpfs           3.9G  417M  3.5G  11% /run
 
 --设置主机名，重新连接ssh生效。
 （centos6修改配置文件/etc/sysconfig/network，重启生效）
+
 ```bash
 hostnamectl set-hostname utachi.cn
+echo “utachi.cn” >> /etc/hosts
 ```   
 ## 1.4 关闭Selinux
 
@@ -53,7 +55,8 @@ setenforce 0
 ## 2.1 /etc/sysctl.conf 
 
 --修改或添加，具体参数意思，请百度或参考oracle官网解释
-    # vim  /etc/sysctl.conf  
+
+vim  /etc/sysctl.conf  
 ```
 net.ipv4.ip_local_port_range= 9000 65500 
 fs.file-max = 6815744 
@@ -67,10 +70,11 @@ net.core.rmem_max=4194304
 net.core.wmem_max=1048576 
 fs.aio-max-nr = 1048576
 
-sysctl -p  #使配置生效
+sysctl -p       #使配置生效
 ```
 ## 2.2 用户的限制文件
-/etc/security/limits.conf
+
+vim /etc/security/limits.conf
  
 ```bash
  # vim /etc/security/limits.conf 在文件后增加
@@ -104,6 +108,8 @@ passwd oracle
 ## 3.2 创建安装目录
 ```bash
 mkdir -p /u01/app/oracle/product/11.2.0/dbhome_1
+mkdir -p /u01/src
+
 ```
 ## 3.3 数据文件存放目录
 ```bash
@@ -154,18 +160,19 @@ yum -y install gcc gcc-c++ make binutilscompat-libstdc++-33 elfutils-libelf elfu
 ## 4.2 解压安装包
 
 ```bash
-unzip linux.x64_11gR2_database_*.zip
+unzip linux.x64_11gR2_database_*.zip -d /u01/src
 ```
 ## 4.3 数据库安装
 
-db_install.rsp 安装应答配置文件;
+db_install.rsp 安装应答配置文件
 
-dbca.rsp 创建数据库应答;
+dbca.rsp 创建数据库应答
 
 netca.rsp 建立监听、本地服务名等网络设置应答
 
-##  4.4 修改配置文件db_install.rsp，并安装
-  [Oracle 11gR2 db_install.rsp详解](http://www.cnblogs.com/yingsong/p/6031452.html)
+##  4.4 修改db_install.rsp,安装
+
+[Oracle 11gR2 db_install.rsp详解](http://www.cnblogs.com/yingsong/p/6031452.html)
 ```bash
 oracle.install.option=INSTALL_DB_SWONLY
 ORACLE_HOSTNAME=utachi.cn
@@ -186,17 +193,19 @@ DECLINE_SECURITY_UPDATES=true    #一定要设为true
 ##  4.5 登录oracle用户，执行安装
 
 ```
-  $ ./runInstaller-silent -responseFile /home/u11/database/response/db_install.rsp 
+  $ cd /u01/src/database
+  $ ./runInstaller-silent -responseFile /u01/src/database/response/db_install.rsp 
 ```    
 安装过程中，如果提示[WARNING]不必理会，此时安装程序仍在进行，如果出现[FATAL]，则安装程序已经停止了。
 打开另一个终端，执行命令
 ```bash
-  tail -100 f /u01/app/oracle/oraInventory/logs/installActions......log
+  tail -100 f /u01/app/oracle/oraInventory/logs/installActions*.log
 ```
 可以实时跟踪查看安装日志，了解安装的进度。
 当出现以下配置脚本需要以 "root" 用户的身份执行。
 
 ```bash
+   $ su - root
    /u01/app/oracle/oraInventory/orainstRoot.sh
    /u01/app/oracle/product/11.2.0/db_1/root.sh
 
@@ -213,10 +222,13 @@ DECLINE_SECURITY_UPDATES=true    #一定要设为true
       Successfully Setup Software.
 ```
   
-   出现这个的话，说明已安装成功，则需要按提示操作，操作完返回Enter成功.
+出现这个的话，说明已安装成功，则需要按提示操作，操作完返回Enter成功.
 
 ## 4.6 配置监听配置文件
-response/netca.rsp
+
+编辑前先备份，以下同理。
+
+vim /u01/src/database/response/netca.rsp
     
 ```
 $ netca /silent /responsefile response/netca.rsp
@@ -241,7 +253,9 @@ $ netca /silent /responsefile response/netca.rsp
    tcp  0   0 :::1521        :::*      LISTEN      5477/tnslsnr
 ```
     
-## 4.7 修改response/dbca.rsp，静默建立新库
+## 4.7 修改dbca.rsp，静默建立新库
+
+vim /u01/src/database/response/dbca.rsp
    
 ```
 RESPONSEFILE_VERSION = "11.2.0"                     #不能更改
