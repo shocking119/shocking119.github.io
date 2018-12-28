@@ -135,7 +135,7 @@ $ vim .bash_profile
 　　export PATH=$PATH:$ORACLE_HOME/bin
 　　export CLASSPATH=$ORACLE_HOME/JRE:$ORACLE_HOME/jlib:$ORACLE_HOME/rdbms/jlib
 　　export LD_LIBRARY_PATH=$ORACLE_HOME/lib:/lib64:/usr/lib64:/usr/local/lib64
-　　export ORACLE_SID=wetalk
+　　export ORACLE_SID=DB1
 　　      #如果设置NLS_LANG，容易产生导入sql或dmp出错，因为其他环境下的不是utf8
 　　export NLS_LANG=AMERICAN_AMERICA.AL32UTF8
 
@@ -246,8 +246,8 @@ $ netca /silent /responsefile response/netca.rsp
 ```
 RESPONSEFILE_VERSION = "11.2.0"                     #不能更改
 OPERATION_TYPE = "createDatabase"
-GDBNAME = "orca.utachi.cn"                          #全局数据库的名字=SID+主机域名
-SID = "orca"                                        #对应的实例名字
+GDBNAME = "DB1.utachi.cn"                           #全局数据库的名字=SID+主机域名
+SID = "DB1"                                         #对应的实例名字
 TEMPLATENAME = "General_Purpose.dbc"                #建库用的模板文件
 DATAFILEDESTINATION = /opt/oracle/oradata           #数据文件存放目录
 RECOVERYAREADESTINATION=/opt/oracle/recovery_data   #恢复数据存放目录
