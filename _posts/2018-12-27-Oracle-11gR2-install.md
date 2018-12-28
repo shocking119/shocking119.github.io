@@ -11,14 +11,14 @@ author: Utachi
 
 # 一.安装前准备
 
-## 1.内存及swap要求
+## 1.1 内存及swap要求
 
 内存大于4G、swap大于1G，本文档以8G为例。
 ```bash
 grep MemTotal /proc/meminfo
 grep SwapTotal /proc/meminfo
 ```
-## 2.硬盘空间
+## 1.2 硬盘空间
 
 剩余空间大于10G
 ```bash
@@ -31,26 +31,26 @@ tmpfs           3.9G     0  3.9G   0% /dev/shm
 tmpfs           3.9G  417M  3.5G  11% /run
 
 ```
-## 3.修改主机名，及ip对应关系
+## 1.3 修改主机名，及ip对应关系
 
 --设置主机名，重新连接ssh生效。
 （centos6修改配置文件/etc/sysconfig/network，重启生效）
 ```bash
 hostnamectl set-hostname utachi.cn
 ```   
-## 4.关闭Selinux
+## 1.4 关闭Selinux
 
 ```bash
 sed -i "s/SELINUX=enforcing/SELINUX=disabled/"/etc/selinux/config  
 setenforce 0
 ```
-## 5.下载oracle11gR2
+## 1.5 下载oracle11gR2
    
 官网下载地址：[https://www.oracle.com/technetwork/database/enterprise-edition/downloads/112010-linx8664soft-100572.html](https://www.oracle.com/technetwork/database/enterprise-edition/downloads/112010-linx8664soft-100572.html)
 
 # 二.修改内核参数
     
-## 1./etc/sysctl.conf 
+## 2.1 /etc/sysctl.conf 
 
 --修改或添加，具体参数意思，请百度或参考oracle官网解释
     # vim  /etc/sysctl.conf  
@@ -69,7 +69,7 @@ fs.aio-max-nr = 1048576
 
 sysctl -p  #使配置生效
 ```
-## 2.用户的限制文件
+## 2.2 用户的限制文件
 /etc/security/limits.conf
  
 ```bash
@@ -92,7 +92,7 @@ session  required   pam_limits.so
  
 # 三.创建用户及组
 
-## 创建用户及组
+## 3.1 创建用户及组
 ```
 groupadd oinstall 
 groupadd dba
@@ -101,31 +101,31 @@ passwd oracle
 ```
 
 
-## 创建安装目录
+## 3.2 创建安装目录
 ```bash
 mkdir -p /u01/app/oracle/product/11.2.0/dbhome_1
 ```
-## 数据文件存放目录
+## 3.3 数据文件存放目录
 ```bash
 mkdir -p /u01/app/oracle/oradata
 ```
-## 数据恢复目录
+## 3.4 数据恢复目录
 ```bash
 mkdir -p /u01/app/oracle/recovery_area
 ```
 
-## 数据库创建及使用过程中的日志目录
+## 3.5 数据库创建及使用过程中的日志目录
 ```bash
 mkdir -p /u01/app/oracle/oraInventory
 ```
 
-## 修改安装目录权限
+## 3.6 修改安装目录权限
 ```bash
 chown -R oracle:oinstall /u01/app/oracle
 chmod 775 /u01/app/oracle
 ```
 
-## 登录oracle用户，设置环境变量
+## 3.7 登录oracle用户，设置环境变量
 
 ```
 # su - oracle
@@ -146,17 +146,17 @@ $ source .bash_profile
     
 # 四.安装oracle
 
-##  1.安装依赖包
+##  4.1 安装依赖包
 
 ```bash
 yum -y install gcc gcc-c++ make binutilscompat-libstdc++-33 elfutils-libelf elfutils-libelf-develglibc glibc-commonglibc-devel libaio libaio-devel libgcclibstdc++libstdc++-devel unixODBC unixODBC-devel ksh
 ```
-## 2.解压安装包
+## 4.2 解压安装包
 
 ```bash
 unzip linux.x64_11gR2_database_*.zip
 ```
-## 3.数据库安装
+## 4.3 数据库安装
 
 db_install.rsp 安装应答配置文件;
 
@@ -164,7 +164,7 @@ dbca.rsp 创建数据库应答;
 
 netca.rsp 建立监听、本地服务名等网络设置应答
 
-##  4.修改配置文件db_install.rsp，并安装
+##  4.4 修改配置文件db_install.rsp，并安装
   [Oracle 11gR2 db_install.rsp详解](http://www.cnblogs.com/yingsong/p/6031452.html)
 ```bash
 oracle.install.option=INSTALL_DB_SWONLY
@@ -183,7 +183,7 @@ oracle.install.db.config.starterdb.fileSystemStorage.dataLocation=/u01/app/oracl
 oracle.install.db.config.starterdb.fileSystemStorage.recoveryLocation=/u01/app/oracle/recovery_data
 DECLINE_SECURITY_UPDATES=true    #一定要设为true
 ```
-##  5.登录oracle用户，执行安装
+##  4.5 登录oracle用户，执行安装
 
 ```
   $ ./runInstaller-silent -responseFile /home/u11/database/response/db_install.rsp 
@@ -215,7 +215,7 @@ DECLINE_SECURITY_UPDATES=true    #一定要设为true
   
    出现这个的话，说明已安装成功，则需要按提示操作，操作完返回Enter成功.
 
-## 6.配置监听配置文件
+## 4.6 配置监听配置文件
 response/netca.rsp
     
 ```
@@ -241,7 +241,7 @@ $ netca /silent /responsefile response/netca.rsp
    tcp  0   0 :::1521        :::*      LISTEN      5477/tnslsnr
 ```
     
-## 7.修改配置文件response/dbca.rsp，静默建立新库
+## 4.7 修改response/dbca.rsp，静默建立新库
    
 ```
 RESPONSEFILE_VERSION = "11.2.0"                     #不能更改
