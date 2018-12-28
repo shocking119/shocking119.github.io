@@ -31,7 +31,7 @@ tmpfs           3.9G     0  3.9G   0% /dev/shm
 tmpfs           3.9G  417M  3.5G  11% /run
 
 ```
-## 1.3 修改主机名，及ip对应关系
+## 1.3 修改主机名
 
 --设置主机名，重新连接ssh生效。
 （centos6修改配置文件/etc/sysconfig/network，重启生效）
