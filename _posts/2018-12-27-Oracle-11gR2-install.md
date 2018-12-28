@@ -92,7 +92,7 @@ session  required   pam_limits.so
  
 # 三.创建用户及组
 
-* 创建用户及组
+## 创建用户及组
 ```
 groupadd oinstall 
 groupadd dba
@@ -101,31 +101,32 @@ passwd oracle
 ```
 
 
-* 创建安装目录
+## 创建安装目录
 ```bash
 mkdir -p /u01/app/oracle/product/11.2.0/dbhome_1
 ```
-* 数据文件存放目录
+## 数据文件存放目录
 ```bash
 mkdir -p /u01/app/oracle/oradata
 ```
-* 数据恢复目录
+## 数据恢复目录
 ```bash
 mkdir -p /u01/app/oracle/recovery_area
 ```
 
-* 数据库创建及使用过程中的日志目录
+## 数据库创建及使用过程中的日志目录
 ```bash
 mkdir -p /u01/app/oracle/oraInventory
 ```
 
-* 修改安装目录权限
+## 修改安装目录权限
 ```bash
 chown -R oracle:oinstall /u01/app/oracle
 chmod 775 /u01/app/oracle
 ```
 
-* 登录oracle用户，设置环境变量
+## 登录oracle用户，设置环境变量
+
 ```
 # su - oracle
 $ vim .bash_profile
