@@ -205,7 +205,7 @@ DECLINE_SECURITY_UPDATES=true    #一定要设为true
 当出现以下配置脚本需要以 "root" 用户的身份执行。
 
 ```bash
-   $ su - root
+   $ su root
    /u01/app/oracle/oraInventory/orainstRoot.sh
    /u01/app/oracle/product/11.2.0/db_1/root.sh
 
@@ -231,17 +231,17 @@ DECLINE_SECURITY_UPDATES=true    #一定要设为true
 vim /u01/src/database/response/netca.rsp
     
 ```
-$ netca /silent /responsefile response/netca.rsp
+$ netca /silent /responsefile /u01/src/database/response/netca.rsp
 
     正在对命令行参数进行语法分析:
     参数"silent" = true
-    参数"responsefile" = /home/oracle/response/netca.rsp
+    参数"responsefile" = /u01/src/database/response/netca.rsp
     完成对命令行参数进行语法分析。
     Oracle Net Services 配置:
     完成概要文件配置。
     Oracle Net 监听程序启动:
     正在运行监听程序控制:
-    /opt/oracle/11.2.0/bin/lsnrctl start LISTENER
+    /u01/app/oracle/product/11.2.0/bin/lsnrctl start LISTENER
     监听程序控制完成。
     监听程序已成功启动。
     监听程序配置完成。
@@ -258,15 +258,15 @@ $ netca /silent /responsefile response/netca.rsp
 vim /u01/src/database/response/dbca.rsp
    
 ```
-RESPONSEFILE_VERSION = "11.2.0"                     #不能更改
+RESPONSEFILE_VERSION = "11.2.0"                         #不能更改
 OPERATION_TYPE = "createDatabase"
-GDBNAME = "DB1.utachi.cn"                           #全局数据库的名字=SID+主机域名
-SID = "DB1"                                         #对应的实例名字
-TEMPLATENAME = "General_Purpose.dbc"                #建库用的模板文件
-DATAFILEDESTINATION = /opt/oracle/oradata           #数据文件存放目录
-RECOVERYAREADESTINATION=/opt/oracle/recovery_data   #恢复数据存放目录
-CHARACTERSET = "AL32UTF8"                           #字符集，重要!!! 建库后一般不能更改，所以建库前要确定清楚。
-TOTALMEMORY = "5120"                                #Oracle内存5120MB,低配应小于总内存2/3  
+GDBNAME = "DB1.utachi.cn"                               #全局数据库的名字=SID+主机域名
+SID = "DB1"                                             #对应的实例名字
+TEMPLATENAME = "General_Purpose.dbc"                    #建库用的模板文件
+DATAFILEDESTINATION = /u01/app/oracle/oradata           #数据文件存放目录
+RECOVERYAREADESTINATION=/u01/app/oracle/recovery_data   #恢复数据存放目录
+CHARACTERSET = "AL32UTF8"                               #字符集，重要!!! 建库后一般不能更改，所以建库前要确定清楚。
+TOTALMEMORY = "5120"                                    #Oracle内存5120MB,低配应小于总内存2/3  
 ```
 配置完之后，执行命令:
 ```
@@ -279,10 +279,10 @@ $dbca -silent -responseFile /etc/dbca.rsp
 正在进行数据库创建
 66% 已完成
 100% 已完成
-有关详细信息, 请参阅日志文件 "/u01/app/oracle/cfgtoollogs/dbca/Utachi/Utachi.log"。
+有关详细信息, 请参阅日志文件 "/u01/app/oracle/cfgtoollogs/dbca/DB1/DB1.log"。
 
 查看日志文件
-$ cat /u01/app/oracle/cfgtoollogs/dbca/Utachi/Utachi.log
+$ cat /u01/app/oracle/cfgtoollogs/dbca/DB1/DB1.log
 ```
 
 # 五. 开启归档模式，制定归档目录
