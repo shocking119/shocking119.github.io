@@ -31,7 +31,7 @@ JDBC Statement 形式的数据库操作，是将一个组装好的带有数据�
 -- 创建数据库
 CREATE DATABASE `utachi`;
 
--- 切换到 bank 库
+-- 切换到 utachi 库
 USE `utachi`;
 
 -- 创建表
@@ -77,7 +77,7 @@ public class UnsafeStatement {
     private static final String PASSWORD = "123456";
 
     private static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
-    private static final String DB_URL = "jdbc:mysql://127.0.0.1:3306/bank";
+    private static final String DB_URL = "jdbc:mysql://127.0.0.1:3306/utachi";
 
     public static void select(String name) throws ClassNotFoundException, SQLException {
         Class.forName(JDBC_DRIVER);
