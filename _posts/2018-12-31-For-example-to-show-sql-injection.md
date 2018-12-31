@@ -1,15 +1,15 @@
 ---
 layout: post
-title:  "主流ssl证书配置"
+title:  "举例说明sql注入"
 categories: Linux
-tags:  ssl https
+tags:  sql java
 author: Utachi
 ---
 
 * content
 {:toc}
 
-# 举例说明sql注入
+# 引子
 
 * 平时的工作中很多WAF（web应用防火墙）的用户会发现拦截sql注入***条，过来问我什么是sql注入，能不呢简单举个例子说明一下，今天元旦没什么事做就写一篇记录一下，分享给大家
 ## 什么是sql注入
