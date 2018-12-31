@@ -127,7 +127,7 @@ SELECT * FROM user_balance WHERE name='zhangs' OR '1'='1'
 
 ## 如何改进
 
-* 使用JDBC PreparedStatement 查询数据
+使用JDBC PreparedStatement 查询数据
 
 
 ```bash
@@ -176,7 +176,6 @@ public class PreparedStatementSelect {
 
 }
 ```
-
 执行结果：
 
 ```bash
