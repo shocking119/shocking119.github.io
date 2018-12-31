@@ -54,7 +54,7 @@ mysql> select * from user_balance;
 | id | name   | balance |
 +----+--------+---------+
 |  1 | zhangs |    1000 |
-|  2 | xiaosi |    1001 |
+|  2 | zhaosi |    1001 |
 +----+--------+---------+
 2 rows in set (0.00 sec)
 ```
@@ -110,11 +110,12 @@ public class UnsafeStatement {
 }
 ```
 
-* 执行结果：
+执行结果：
+
 ```bash
 SELECT * FROM user_balance WHERE name='zhangs' OR '1'='1'
 id: 1, name: zhangs, balance: 1000
-id: 2, name: xiaosi, balance: 1001
+id: 2, name: zhaosi, balance: 1001
 ```
 
 select 方法的本意是根据 name 查询对应的记录。但是"有人"精心构造了name的值('zhangs' OR '1'='1')，最终导致组装的SQL变成了：
@@ -170,7 +171,7 @@ public class PreparedStatementSelect {
 
     public static void main(String[] args) throws SQLException, ClassNotFoundException {
         select("zhangs");
-        select("xiaosi");
+        select("zhaosi");
     }
 
 }
@@ -179,6 +180,6 @@ public class PreparedStatementSelect {
 执行结果：
 
 ```bash
-id: 1, name: letian, balance: 1000
-id: 2, name: xiaosi, balance: 1001
+id: 1, name: zhangs, balance: 1000
+id: 2, name: zhaosi, balance: 1001
 ```
