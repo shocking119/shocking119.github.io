@@ -12,7 +12,9 @@ author: Utachi
 # 引子
 
 * 平时的工作中很多WAF（web应用防火墙）的用户会发现拦截sql注入***条，过来问我什么是sql注入，能不呢简单举个例子说明一下，今天元旦没什么事做就写一篇记录一下，分享给大家
+
 ## 什么是sql注入
+
 * 维基百科：
 SQL注入攻击（英语：SQL injection），简称SQL攻击或注入攻击，是发生于应用程序与数据库层的安全漏洞。简而言之，是在输入的字符串之中注入SQL指令，在设计不良的程序当中忽略了字符检查，那么这些注入进去的恶意指令就会被数据库服务器误认为是正常的SQL指令而运行，因此遭到破坏或是入侵。
 
@@ -23,7 +25,8 @@ JDBC Statement 形式的数据库操作，是将一个组装好的带有数据�
 
 下面是一个不安全的例子：
 * 数据库和表设计
-```markdown
+
+```bash
 -- 创建数据库
 CREATE DATABASE `utachi`;
 
@@ -41,9 +44,10 @@ ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_general_ci;
 ```
+
 * 在 user_balance 表中准备两条数据：
 
-```markdown
+```bash
 mysql> select * from user_balance;
 +----+--------+---------+
 | id | name   | balance |
@@ -55,7 +59,7 @@ mysql> select * from user_balance;
 ```
 * 一个不安全的查询案例
 
-```markdown
+```bash
 package demo;
 
 import com.sun.tools.internal.ws.wsdl.document.soap.SOAPUse;
@@ -106,14 +110,14 @@ public class UnsafeStatement {
 ```
 
 * 执行结果：
-```markdown
+```bash
 SELECT * FROM user_balance WHERE name='zhangs' OR '1'='1'
 id: 1, name: zhangs, balance: 1000
 id: 2, name: xiaosi, balance: 1001
 ```
 
 select 方法的本意是根据 name 查询对应的记录。但是"有人"精心构造了name的值('zhangs' OR '1'='1')，最终导致组装的SQL变成了：
-```markdown
+```bash
 SELECT * FROM user_balance WHERE name='zhangs' OR '1'='1'
 ```
 
@@ -121,7 +125,7 @@ SELECT * FROM user_balance WHERE name='zhangs' OR '1'='1'
 ## 如何改进
 
 * 使用JDBC PreparedStatement 查询数据
-```markdown
+```bash
 package demo;
 
 import java.sql.*;
@@ -169,7 +173,7 @@ public class PreparedStatementSelect {
 
 执行结果：
 
-```markdown
+```bash
 id: 1, name: letian, balance: 1000
 id: 2, name: xiaosi, balance: 1001
 ```
