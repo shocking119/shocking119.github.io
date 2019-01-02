@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "举例说明sql注入"
-categories: Linux
+categories: Mysql
 tags:  sql java
 author: Utachi
 ---
