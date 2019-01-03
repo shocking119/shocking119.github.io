@@ -38,26 +38,34 @@ author: Utachi
 * **重载conf文件：nginx -s reload**
 
 ## Apache
+
+1.打开 Apache 安装目录下 conf 目录，将下载好的证书解压；
+
+修改httpd.conf 文件，找到以下内容并去掉“#”
+
 ```bash
-    1）打开 Apache 安装目录下 conf 目录，将下载好的证书解压；
-        修改httpd.conf 文件，找到以下内容并去掉“#”
-            #LoadModule ssl_module modules/mod_ssl.so (如果找不到请确认是否编译过 openssl 插件)
-            #Include conf/extra/httpd-ssl.conf
-    2）打开 apache 安装目录下 conf/extra/httpd-ssl.conf 文件 (也可能是conf.d/ssl.conf，与操作系统及安装方式有关)， 在配置文件中查找以下配置语句:
-        
-            # 添加 SSL 协议支持协议，去掉不安全的协议
-            SSLProtocol all -SSLv2 -SSLv3
-            # 修改加密套件如下
-            SSLCipherSuite HIGH:!RC4:!MD5:!aNULL:!eNULL:!NULL:!DH:!EDH:!EXP:+MEDIUM
-            SSLHonorCipherOrder on
-            # 证书公钥配置
-            SSLCertificateFile cert/public.pem
-            # 证书私钥配置
-            SSLCertificateKeyFile cert/1536195675718.key
-            # 证书链配置，如果该属性开头有 '#'字符，请删除掉
-            SSLCertificateChainFile cert/chain.pem
-    3) 重启 Apache
+#LoadModule ssl_module modules/mod_ssl.so (如果找不到请确认是否编译过 openssl 插件)
+#Include conf/extra/httpd-ssl.conf
 ```
+
+2.打开 apache 安装目录下 conf/extra/httpd-ssl.conf 文件 (也可能是conf.d/ssl.conf，与操作系统及安装方式有关)， 在配置文件中查找以下配置语句:
+
+```bash
+# 添加 SSL 协议支持协议，去掉不安全的协议
+SSLProtocol all -SSLv2 -SSLv3
+# 修改加密套件如下
+SSLCipherSuite HIGH:!RC4:!MD5:!aNULL:!eNULL:!NULL:!DH:!EDH:!EXP:+MEDIUM
+SSLHonorCipherOrder on
+# 证书公钥配置
+SSLCertificateFile cert/public.pem
+# 证书私钥配置
+SSLCertificateKeyFile cert/1536195675718.key
+# 证书链配置，如果该属性开头有 '#'字符，请删除掉
+SSLCertificateChainFile cert/chain.pem
+```
+
+3.重启 Apache
+
 
 ## Tomcat
 
