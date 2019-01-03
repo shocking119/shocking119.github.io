@@ -60,34 +60,40 @@ author: Utachi
 ```
 
 ## Tomcat
-``` bash
-    (Tomcat支持JKS格式证书，从Tomcat7开始也支持PFX格式证书，两种证书格式任选其一)
-    1) 证书格式转换
-		在Tomcat的安装目录下创建cert目录，并且将下载的全部文件拷贝到cert目录中。如果申请证书时是自己创建的CSR文件，附件中只包含1536195675718.pem文件，还需要将私钥文件拷贝到cert目录，命名为1536195675718.key；如果是系统创建的CSR，请直接到第2)步。
-		到cert目录下执行如下命令完成PFX格式转换命令
-			openssl pkcs12 -export -out 1536195675718.pfx -inkey 1536195675718.key -in 1536195675718.pem （此处要设置PFX证书密码，请牢记）
-	2）PFX证书安装
-		找到安装Tomcat目录下该文件server.xml,一般默认路径都是在 conf 文件夹中。找到 <Connection port="8443"标签，增加如下属性：
-			keystoreFile="cert/1536195675718.pfx"
-			keystoreType="PKCS12"
-			#此处的证书密码，请参考附件中的密码文件或在第1步中设置的密码
-			keystorePass="证书密码"
-		完整的配置如下，其中port属性根据实际情况修改：
-			<Connector port="8443"
-			    protocol="HTTP/1.1"
-			    SSLEnabled="true"
-			    scheme="https"
-			    secure="true"
-			    keystoreFile="cert/1536195675718.pfx"
-			    keystoreType="PKCS12"
-			    keystorePass="之前的PFX证书密码"
-			    clientAuth="false"
-			    SSLProtocol="TLSv1+TLSv1.1+TLSv1.2"
-			    ciphers="TLS_RSA_WITH_AES_128_CBC_SHA,TLS_RSA_WITH_AES_256_CBC_SHA,TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA,TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256,TLS_RSA_WITH_AES_128_CBC_SHA256,TLS_RSA_WITH_AES_256_CBC_SHA256"
-			/>
-		注意:不要直接拷贝所有配置，只需添加 keystoreFile,keystorePass等参数即可，其它参数请根据自己的实际情况修改
-	3）重启Tomcat
+
+Tomcat支持JKS格式证书，从Tomcat7开始也支持PFX格式证书，两种证书格式任选其一)
+
+* 1. 证书格式转换
+    在Tomcat的安装目录下创建cert目录，并且将下载的全部文件拷贝到cert目录中。如果申请证书时是自己创建的CSR文件，附件中只包含1536195675718.pem文件，还需要将私钥文件拷贝到cert目录，命名为1536195675718.key；如果是系统创建的CSR，请直接到第2)步。
+    到cert目录下执行如下命令完成PFX格式转换命令
+```markdown
+openssl pkcs12 -export -out 1536195675718.pfx -inkey 1536195675718.key -in 1536195675718.pem
+```    
+此处要设置PFX证书密码，请牢记
+* 2. PFX证书安装
+    找到安装Tomcat目录下该文件server.xml,一般默认路径都是在 conf 文件夹中。找到 <Connection port="8443"标签，增加如下属性：
+```markdown
+keystoreFile="cert/1536195675718.pfx"
+keystoreType="PKCS12"
+keystorePass="证书密码"             #此处的证书密码，请参考附件中的密码文件或在第1步中设置的密码
 ```
+完整的配置如下，其中port属性根据实际情况修改：
+```markdown
+ <Connector port="8443"
+            protocol="HTTP/1.1"
+            SSLEnabled="true"
+            scheme="https"
+            secure="true"
+            keystoreFile="cert/1536195675718.pfx"
+            keystoreType="PKCS12"
+            keystorePass="之前的PFX证书密码"
+            clientAuth="false"
+            SSLProtocol="TLSv1+TLSv1.1+TLSv1.2"
+            ciphers="TLS_RSA_WITH_AES_128_CBC_SHA,TLS_RSA_WITH_AES_256_CBC_SHA,TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA,TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256,TLS_RSA_WITH_AES_128_CBC_SHA256,TLS_RSA_WITH_AES_256_CBC_SHA256"
+        />
+```       
+注意:不要直接拷贝所有配置，只需添加 keystoreFile,keystorePass等参数即可，其它参数请根据自己的实际情况修改
+* 3. 重启Tomcat
 
 ## IIS
 * IIS 6 
