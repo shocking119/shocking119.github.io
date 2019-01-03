@@ -63,7 +63,7 @@ author: Utachi
 
 Tomcat支持JKS格式证书，从Tomcat7开始也支持PFX格式证书，两种证书格式任选其一
 
- 1. 证书格式转换
+1.证书格式转换
  
 在Tomcat的安装目录下创建cert目录，并且将下载的全部文件拷贝到cert目录中。如果申请证书时是自己创建的CSR文件，附件中只包含1536195675718.pem文件，还需要将私钥文件拷贝到cert目录，命名为1536195675718.key；如果是系统创建的CSR，请直接到第2步。
 
@@ -74,7 +74,7 @@ openssl pkcs12 -export -out 1536195675718.pfx -inkey 1536195675718.key -in 15361
 ```    
 此处要设置PFX证书密码，请牢记
 
- 2. PFX证书安装
+2.PFX证书安装
 
 找到安装Tomcat目录下该文件server.xml,一般默认路径都是在 conf 文件夹中。找到 <Connection port="8443"标签，增加如下属性：
 
@@ -103,7 +103,7 @@ keystorePass="证书密码"             #此处的证书密码，请参考附件
 
 注意:不要直接拷贝所有配置，只需添加 keystoreFile,keystorePass等参数即可，其它参数请根据自己的实际情况修改
 
- 3. 重启Tomcat
+3.重启Tomcat
 
 ## IIS
 * IIS 6 
