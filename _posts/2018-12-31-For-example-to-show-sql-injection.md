@@ -48,6 +48,10 @@ COLLATE = utf8mb4_general_ci;
 
 * 在 user_balance 表中准备两条数据：
 
+
+
+
+
 ```bash
 mysql> select * from user_balance;
 +----+--------+---------+

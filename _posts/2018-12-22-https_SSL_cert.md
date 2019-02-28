@@ -39,6 +39,10 @@ author: Utachi
 ```
 3.重载conf文件：nginx -s reload**
 
+
+
+
+
 ## Apache
 
 1.打开 Apache 安装目录下 conf 目录，将下载好的证书解压；

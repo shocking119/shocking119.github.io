@@ -192,7 +192,7 @@ url: "https://utachi.cn" # the base hostname & protocol for your site
 twitter_username: shocking119126
 facebook_username: shocking119.water
 github_username:  shocking119
-email: shocking119126@126.com
+email: shocking119@126.com
 weibo_username: 3115521wh
 zhihu_username: shocking119
 linkedIn_username: shocking119

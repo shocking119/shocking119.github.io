@@ -56,6 +56,10 @@ Java(TM) SE Runtime Environment (build 1.8.0_131-b11)
 Java HotSpot(TM) 64-Bit Server VM (build 25.131-b11, mixed mode)
 ```
 
+
+
+
+
 ## Install Jenkins
 * 下载：[http://updates.jenkins-ci.org/download/war/](http://updates.jenkins-ci.org/download/war/)
 * 启动：java -jar  jenkins.war(默认端口8080，可通过httpPort指定端口)
