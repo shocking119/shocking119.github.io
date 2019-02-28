@@ -9,7 +9,7 @@ author: Utachi
 * content
 {:toc}
 
-# 一、基本思路
+## 一、基本思路
 springboot项目做演示
 
 1、项目的部署在Jenkins上执行构建
@@ -20,19 +20,19 @@ springboot项目做演示
 
 4、创建个docker镜像，通过docker容器部署项目
 
-# 二、环境搭建
+## 二、环境搭建
 
 
 
 
 
-## 1、系统环境
+### 1、系统环境
 ```bash
 [root@node0 ~]# cat /etc/redhat-release
 CentOS Linux release 7.2.1511 (Core)
 ```
 
-## 2、Install JDK
+### 2、Install JDK
 
 * 下载并安装jdk
 ```bash
@@ -58,7 +58,7 @@ Java(TM) SE Runtime Environment (build 1.8.0_131-b11)
 Java HotSpot(TM) 64-Bit Server VM (build 25.131-b11, mixed mode)
 ```
 
-## Install Jenkins
+### Install Jenkins
 * 下载：[http://updates.jenkins-ci.org/download/war/](http://updates.jenkins-ci.org/download/war/)
 * 启动：java -jar  jenkins.war(默认端口8080，可通过httpPort指定端口)
 
