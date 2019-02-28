@@ -9,8 +9,6 @@ author: Utachi
 * content
 {:toc}
 
-
-
 # 一、基本思路
 springboot项目做演示
 
@@ -23,6 +21,10 @@ springboot项目做演示
 4、创建个docker镜像，通过docker容器部署项目
 
 # 二、环境搭建
+
+
+
+
 
 ## 1、系统环境
 ```bash
@@ -55,10 +57,6 @@ java version "1.8.0_131"
 Java(TM) SE Runtime Environment (build 1.8.0_131-b11)
 Java HotSpot(TM) 64-Bit Server VM (build 25.131-b11, mixed mode)
 ```
-
-
-
-
 
 ## Install Jenkins
 * 下载：[http://updates.jenkins-ci.org/download/war/](http://updates.jenkins-ci.org/download/war/)

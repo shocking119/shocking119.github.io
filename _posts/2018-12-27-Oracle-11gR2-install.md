@@ -20,6 +20,10 @@ grep SwapTotal /proc/meminfo
 ```
 ## 1.2 硬盘空间
 
+
+
+
+
 剩余空间大于10G
 ```bash
 df -h
@@ -51,10 +55,6 @@ setenforce 0
 官网下载地址：[https://www.oracle.com/technetwork/database/enterprise-edition/downloads/112010-linx8664soft-100572.html](https://www.oracle.com/technetwork/database/enterprise-edition/downloads/112010-linx8664soft-100572.html)
 
 # 二.修改内核参数
-
-
-
-
     
 ## 2.1 /etc/sysctl.conf 
 
