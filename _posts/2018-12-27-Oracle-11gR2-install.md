@@ -10,20 +10,13 @@ author: Utachi
 {:toc}
 
 ## 一.安装前准备
-
 ### 1.1 内存及swap要求
-
 内存大于4G、swap大于1G，本文档以8G为例。
 ```bash
 grep MemTotal /proc/meminfo
 grep SwapTotal /proc/meminfo
 ```
 ### 1.2 硬盘空间
-
-
-
-
-
 剩余空间大于10G
 ```bash
 df -h
@@ -33,8 +26,12 @@ Filesystem      Size  Used Avail Use% Mounted on
 devtmpfs        3.9G     0  3.9G   0% /dev
 tmpfs           3.9G     0  3.9G   0% /dev/shm
 tmpfs           3.9G  417M  3.5G  11% /run
-
 ```
+
+
+
+
+
 ### 1.3 修改主机名
 
 --设置主机名，重新连接ssh生效。
