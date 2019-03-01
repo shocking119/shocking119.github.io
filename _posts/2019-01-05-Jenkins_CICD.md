@@ -29,6 +29,7 @@ CentOS Linux release 7.2.1511 (Core)
 ### 2、Install JDK
 
 * 下载并安装jdk
+
 ```bash
 wget https://download.oracle.com/otn/java/jdk/8u131-b11/d54c1d3a095b4ff2b6607d096fa80163/jdk-8u131-linux-x64.rpm?AuthParam=1546653417_8f345955cac417a6625ab6e4f27c79f6
 rpm -ivh jdk-8u131-linux-x64.rpm
