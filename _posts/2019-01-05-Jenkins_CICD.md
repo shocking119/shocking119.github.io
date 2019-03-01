@@ -38,6 +38,7 @@ rpm -ivh jdk-8u131-linux-x64.rpm
 
 
 * 配置环境变量
+
 ```bash
 vi ~/.bashrc
 
@@ -46,6 +47,7 @@ export PATH=$PATH:$JAVA_HOME/bin
 
 source ~/.bashrc
 ```
+
 * 测试
 
 ```bash
