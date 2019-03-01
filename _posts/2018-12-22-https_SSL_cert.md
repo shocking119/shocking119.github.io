@@ -15,10 +15,6 @@ author: Utachi
 
 2.修改nginx.conf 文件，找到server定义，或者单独include一个conf，填写vhost。 
 
-
-
-
-
 ``` bash
     server {
         listen 443;
@@ -41,6 +37,11 @@ author: Utachi
             }
         }
 ```
+
+
+
+
+
 3.重载conf文件：nginx -s reload**
 
 ## Apache
