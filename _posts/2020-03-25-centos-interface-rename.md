@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "CentOS 7网卡ethx格式命名"
-categories: CI/CD
+categories: Linux
 tags:  linux 
 author: Utachi
 ---
