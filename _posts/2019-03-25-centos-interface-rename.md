@@ -24,9 +24,10 @@ author: Utachi
 ## 二、修改网卡名称样式为ethx
 
 ### 1、编辑 grub 配置文件
-```bash
+
 vim /etc/sysconfig/grub   # 其实是/etc/default/grub的软连接
 为GRUB_CMDLINE_LINUX变量增加2个参数，net.ifnames=0 biosdevname=0：
+```bash
 GRUB_CMDLINE_LINUX="crashkernel=auto rd.lvm.lv=cl/root rd.lvm.lv=cl/swap net.ifnames=0 biosdevname=0 rhgb quiet"
 ```
 ### 2、重新生成 grub 配置文件
