@@ -14,8 +14,8 @@ author: Utachi
 
 # 一. 用downloadonly下载
 ##1.1  处理依赖关系
-自动下载到/localyum目录，pages这个目录会自动创建
-yum install --downloadonly --downloaddir=/localyum  ceph-deploy
+自动下载到/localrepo目录，pages这个目录会自动创建
+yum install --downloadonly --downloaddir=/localrepo  ceph-deploy
 
 注意，如果下载的包包含了任何没有满足的依赖关系，yum将会把所有的依赖关系包下载，但是都不会被安装。
 
@@ -66,7 +66,7 @@ createrepo --update  ./
 
 # 4.创建新的repo
 
-\#vim /etc/yum.repos.d/CentOS-Media.repo
+\# vim /etc/yum.repos.d/CentOS-Media.repo
 
 ````bash
 [local-repo]
