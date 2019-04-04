@@ -14,7 +14,7 @@ author: Utachi
 
 # 一. 用downloadonly下载
 
-## 1.1  处理依赖关系
+## 1.1 处理依赖关系
 
 自动下载到/localrepo目录，pages这个目录会自动创建
 yum install --downloadonly --downloaddir=/localrepo  ceph-deploy
@@ -83,7 +83,9 @@ enabled=1
 ````bash
 yum clean all && yum makecache
 ````
+
 # 附录
+
 ## 阿里云yum源
 
 #aliyun base
