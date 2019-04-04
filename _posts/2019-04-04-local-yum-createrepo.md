@@ -13,7 +13,9 @@ author: Utachi
 通过配置yum仓库指向文件可以将它设置成本地的yum源也可以是通过http发布的共享yum源。
 
 # 一. 用downloadonly下载
+
 ##1.1  处理依赖关系
+
 自动下载到/localrepo目录，pages这个目录会自动创建
 yum install --downloadonly --downloaddir=/localrepo  ceph-deploy
 
@@ -53,6 +55,7 @@ keepcache=0
  rpm -Uvh createrepo-0.9.9-28.el7.noarch.rpm 
 ```
 ### 3.1.2 生成符合要求的yum仓库
+
 执行createrepo /localrepo 
 将放置rpm安装包的文件夹创造成一个仓库文件,文件夹里面会多出一个repodata仓库数据文件夹。
 
