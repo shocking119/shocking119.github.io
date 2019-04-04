@@ -12,17 +12,20 @@ author: Utachi
 我们可以将较常使用的rpm安装包归到一个文件里面制作成一个可以被系统识别的yum仓库，
 通过配置yum仓库指向文件可以将它设置成本地的yum源也可以是通过http发布的共享yum源。
 
-# 一. 用downloadonly下载
+# 一. 获取rpm包
 
-## 1.1 处理依赖关系
+## 1.1 用downloadonly下载
 
-自动下载到/localrepo目录，pages这个目录会自动创建
+处理依赖关系
+自动下载到/localrepo目录，这个目录会自动创建
 yum install --downloadonly --downloaddir=/localrepo  ceph-deploy
 
 注意，如果下载的包包含了任何没有满足的依赖关系，yum将会把所有的依赖关系包下载，但是都不会被安装。
 
 
-# 二、不使用downloadonly ，自动安装或升级的同时保留RPM包
+## 1.2不使用downloadonly 
+
+自动安装或升级的同时保留RPM包
 yum 默认情况下，升级或者安装后，会删除下载的rpm包。
 不过，我们也可以如下设置升级后不删除下载的rpm包
 
@@ -40,11 +43,12 @@ keepcache=0
 
 
 
-# 三. 利用rpm安装包文件进行自己的yum仓库的制作
+# 二. 利用rpm安装包文件进行自己的yum仓库的制作
 
-## 3.1. 首先将rpm包放在一个文件夹里面。
+首先将rpm包放在一个文件夹里面。
 
-### 3.1.1 安装createrepo命令
+## 2.1 安装createrepo
+
 ```bash
  yum install createrepo
 
@@ -54,21 +58,23 @@ keepcache=0
  rpm -ivh python-deltarpm-3.6-3.el7.x86_64.rpm 
  rpm -Uvh createrepo-0.9.9-28.el7.noarch.rpm 
 ```
-### 3.1.2 生成符合要求的yum仓库
+
+## 2.2 生成符合要求的yum仓库
 
 执行createrepo /localrepo 
 
 将放置rpm安装包的文件夹创造成一个仓库文件,文件夹里面会多出一个repodata仓库数据文件夹。
 
+可以看到多了一个repodata的仓库数据文件，此时创建库成功。
 
-### 3.1.3可以看到多了一个repodata的仓库数据文件，此时创建库成功。
+## 2.3 更新rpm包
 
 
 如果添加或者删除了个人的rpm包，不需要再次重新create，只需要--update就可以了
 
 createrepo --update  ./
 
-# 4.创建新的repo
+# 三.创建新的repo
 
 \# vim /etc/yum.repos.d/localrepo.repo
 
@@ -79,12 +85,12 @@ baseurl=file:///localrepo
 gpgcheck=0
 enabled=1
 ````
-更新cache
+## 3.1 更新cache
 ````bash
 yum clean all && yum makecache
 ````
 
-# 附录
+# 四.附录
 
 ## 阿里云yum源
 
