@@ -69,7 +69,7 @@ createrepo --update  ./
 
 # 4.创建新的repo
 
-\# vim /etc/yum.repos.d/CentOS-Media.repo
+\# vim /etc/yum.repos.d/localrepo.repo
 
 ````bash
 [local-repo]
