@@ -108,6 +108,18 @@ gpgcheck=0
 
 enabled=1
 
+[epel]
+
+name=Extra Packages for Enterprise Linux $releasever - $basearch - mirrors.aliyun.com
+
+baseurl=http://mirrors.aliyun.com/epel/$releasever/$basearch
+
+failovermethod=priority
+
+gpgcheck=0
+
+enabled=1
+
 #released updates
 
 [updates]
@@ -118,7 +130,7 @@ failovermethod=priority
 
 baseurl=http://mirrors.aliyun.com/centos/$releasever/updates/$basearch/
 
-enabled=0
+enabled=1
 
 gpgcheck=0
 
@@ -134,17 +146,6 @@ enabled=0
 
 gpgcheck=0
 
-[epel]
-
-name=Extra Packages for Enterprise Linux $releasever - $basearch - mirrors.aliyun.com
-
-baseurl=http://mirrors.aliyun.com/epel/$releasever/$basearch
-
-failovermethod=priority
-
-gpgcheck=0
-
-enabled=1
 
 [qemu-ev]
 
@@ -154,4 +155,4 @@ baseurl=http://mirrors.aliyun.com/centos/$releasever/virt/$basearch/kvm-common/
 
 gpgcheck=0
 
-enabled=1
+enabled=0
