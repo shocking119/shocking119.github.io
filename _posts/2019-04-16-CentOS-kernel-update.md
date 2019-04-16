@@ -18,6 +18,8 @@ yum install -y gcc make git ctags ncurses-devel openssl-devel bison flex elfutil
 ````
 
 # 获取内核
+
+Warning：如果选择default配置，内核所在目录至少5G空间
 ````bash
 wget https://mirrors.aliyun.com/linux-kernel/v4.x/linux-4.18.4.tar.gz
 
@@ -57,5 +59,5 @@ Warning: 从这里开始，必须 root 权限执行命令，否则会失败.
 
 # 修改grub启动器
 ````bash
-grub-mkconfig -o /boot/grub/grub.cfg
+grub2-mkconfig -o /boot/grub2/grub.cfg
 ````
