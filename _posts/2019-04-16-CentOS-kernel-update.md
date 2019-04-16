@@ -45,11 +45,11 @@ make nconfig: 新的命令行 ncurses 界面，以前是menuconfig。
 
 # 编译和安装
 ````bash
-make -j [N]       #如果是四核的机器，N可以是8;-j [N], --jobs[=N]    
+make -j [N]       #N可以等于cpu线程数;-j [N], --jobs[=N]    
                   #Allow N jobs at once; infinite jobs with no arg.
 ````
 
-编译完内核后安装
+按住ENTER不松手*都是默认配置*，编译完内核后安装
 
 Warning: 从这里开始，必须 root 权限执行命令，否则会失败. 
 
