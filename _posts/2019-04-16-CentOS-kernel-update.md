@@ -9,10 +9,10 @@ author: Utachi
 * content
 {:toc}
 
-系统环境：CentOS Linux release 7.4.1708 (Core)最小化安装
+系统环境：CentOS Linux release 7.2.1511 (Core)最小化安装
 
 # 依赖准备
-为提升下载速度可以配置本地源，配置文件在我的[** 另一篇文档 **](https://utachi.cn/2019/04/04/local-yum-createrepo/)
+为提升下载速度可以配置本地源，配置文件在我的[**另一篇文档**](https://utachi.cn/2019/04/04/local-yum-createrepo/)
 ````bash
 yum install -y gcc make git ctags ncurses-devel openssl-devel bison flex elfutils-libelf-devel bc
 ````
