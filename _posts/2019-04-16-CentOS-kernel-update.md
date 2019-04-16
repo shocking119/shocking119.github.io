@@ -45,7 +45,7 @@ make nconfig: 新的命令行 ncurses 界面，以前是menuconfig。
 
 # 编译和安装
 ````bash
-make -j [N]       #N可以等于cpu线程数;-j [N], --jobs[=N]    
+make -j [N]       #N=cpu线程数-1               可以写成    --jobs[=N]    
                   #Allow N jobs at once; infinite jobs with no arg.
 ````
 
