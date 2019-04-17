@@ -19,7 +19,7 @@ yum install -y gcc make git ctags ncurses-devel openssl-devel bison flex elfutil
 
 # 获取内核
 
-Warning：如果选择default配置，内核所在目录至少5G空间
+Warning：如果选择default配置，内核所在目录至少5G空间用于存放make过程中的临时文件
 ````bash
 wget https://mirrors.aliyun.com/linux-kernel/v4.x/linux-4.18.4.tar.gz
 
@@ -37,14 +37,18 @@ make clean && make mrproper
 ````bash
 cp /boot/config-3.10.0-327.13.1.el7.x86_64 .config
 ````
-## 方法2：由内核默认配置生成
+## 方法2：由内核默认配置&自定义选单生成
 ````bash
-make defconfig
+make menuconfig
 ````
-## 高级配置
+这个方法也是引用了boot目录下默认的配置文件作文参考，个别字段会有增删
+**高级配置**
+
 y 是启用, n 是禁用, m 是需要时启用. 
 
-make nconfig: 新的命令行 ncurses 界面，以前是menuconfig。
+make nconfig ：传统命令行遍历所有选单
+
+make menuconfig ：半图形化显示，支持字母快速选单
 
 # 编译和安装
 ````bash
@@ -52,12 +56,12 @@ make -j [N]       #N=cpu线程数-1            可以写成    --jobs[=N]
                   #Allow N jobs at once; infinite jobs with no arg.
 ````
 
-按住ENTER不松手*都是默认配置*，编译完内核后安装
+如果是使用原系统的 *.config* 按住ENTER不松手 *都是默认配置* ，编译完内核后安装
 
 Warning: 从这里开始，必须 root 权限执行命令，否则会失败. 
 
 ````bash
- make modules_install install
+ make modules_install install && make clean
 ````
 
 # 修改grub启动器
