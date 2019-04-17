@@ -33,11 +33,11 @@ make clean && make mrproper
 ````
 # 内核配置
 
-## 方法1：复制当前的内核配置文件
+* 方法1：复制当前的内核配置文件
 ````bash
 cp /boot/config-3.10.0-327.13.1.el7.x86_64 .config
 ````
-## 方法2：由内核默认配置&自定义选单生成
+* 方法2：由内核默认配置&自定义选单生成
 ````bash
 make menuconfig
 ````
