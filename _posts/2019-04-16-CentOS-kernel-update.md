@@ -33,11 +33,14 @@ make clean && make mrproper
 ````
 # 内核配置
 
-## 复制当前的内核配置文件
+## 方法1：复制当前的内核配置文件
 ````bash
 cp /boot/config-3.10.0-327.13.1.el7.x86_64 .config
 ````
-
+## 方法2：由内核默认配置生成
+````bash
+make defconfig
+````
 ## 高级配置
 y 是启用, n 是禁用, m 是需要时启用. 
 
@@ -45,7 +48,7 @@ make nconfig: 新的命令行 ncurses 界面，以前是menuconfig。
 
 # 编译和安装
 ````bash
-make -j [N]       #N=cpu线程数-1               可以写成    --jobs[=N]    
+make -j [N]       #N=cpu线程数-1            可以写成    --jobs[=N]    
                   #Allow N jobs at once; infinite jobs with no arg.
 ````
 
@@ -60,4 +63,14 @@ Warning: 从这里开始，必须 root 权限执行命令，否则会失败.
 # 修改grub启动器
 ````bash
 grub2-mkconfig -o /boot/grub2/grub.cfg
+awk -F \' '$1=="menuentry " {print i++ " : " $2}' /etc/grub2.cfg
+    0 : CentOS Linux (4.18.4) 7 (Core)
+    1 : CentOS Linux (3.10.0-693.el7.x86_64) 7 (Core)
+    2 : CentOS Linux (0-rescue-a6c51d4e386e4d5e9bf6422748d53480) 7 (Core)
+
+
+grub2-set-default 0                 
+                  #设置默认启动项。
+grub2-editenv list
+
 ````
