@@ -26,7 +26,7 @@ wget https://mirrors.aliyun.com/linux-kernel/v4.x/linux-4.18.4.tar.gz
 tar zxvf  linux-4.18.4.tar.gz
 cd  linux-4.18.4
 ````
-确保内核树干净，执行
+确保内核编译目录树干净，执行
 
 ````bash
 make clean && make mrproper
@@ -77,4 +77,19 @@ grub2-set-default 0
                   #设置默认启动项。
 grub2-editenv list
 
+````
+
+整理一下：
+````bash
+cd /home
+yum install -y wget vim gcc make git ctags ncurses-devel openssl-devel bison flex elfutils-libelf-devel bc
+wget https://mirrors.aliyun.com/linux-kernel/v4.x/linux-4.18.4.tar.gz
+tar zxvf  linux-4.18.4.tar.gz
+cd  linux-4.18.4
+make clean && make mrproper
+make menuconfig
+make -j 4
+make modules_install install
+grub2-mkconfig -o /boot/grub2/grub.cfg
+cd && rm -rf /home/linux-4.18.4
 ````
