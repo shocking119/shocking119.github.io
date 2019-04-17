@@ -87,9 +87,9 @@ wget https://mirrors.aliyun.com/linux-kernel/v4.x/linux-4.18.4.tar.gz
 tar zxvf  linux-4.18.4.tar.gz
 cd  linux-4.18.4
 make clean && make mrproper
-make menuconfig
+make menuconfig && cp .config /boot/config-4.18.4
 make -j 4
-make modules_install install
+make modules_install install 
 grub2-mkconfig -o /boot/grub2/grub.cfg && grub2-set-default 0
 cd && rm -rf /home/linux-4.18.4
 ````
