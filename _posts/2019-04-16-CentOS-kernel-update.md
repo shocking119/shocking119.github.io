@@ -90,6 +90,6 @@ make clean && make mrproper
 make menuconfig
 make -j 4
 make modules_install install
-grub2-mkconfig -o /boot/grub2/grub.cfg
+grub2-mkconfig -o /boot/grub2/grub.cfg && grub2-set-default 0
 cd && rm -rf /home/linux-4.18.4
 ````
