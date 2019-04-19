@@ -10,6 +10,8 @@ type: page
 {:toc}
 
 ## 工具
+* [asciinema](https://asciinema.org)
+    linux Teminal 录制工具，字符级别非常精小
 
 * [box-shadow generator](http://www.cssmatic.com/box-shadow)
 
