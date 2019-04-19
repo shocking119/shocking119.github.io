@@ -36,6 +36,7 @@ make clean && make mrproper
 * 方法1：复制当前的内核配置文件
 ````bash
 cp /boot/config-3.10.0-327.13.1.el7.x86_64 .config
+sh -c 'yes "" | make oldconfig'
 ````
 * 方法2：自定义选单生成
 ````bash
@@ -57,8 +58,6 @@ make menuconfig ：半图形化显示，支持字母快速选单
 make -j [N]       #N=cpu线程数-1            可以写成    --jobs[=N]    
                   #Allow N jobs at once; infinite jobs with no arg.
 ````
-
-如果是使用原系统的 *.config* 按住ENTER不松手 *都是默认配置* ，编译完内核后安装
 
 Warning: 从这里开始，必须 root 权限执行命令，否则会失败. 
 
