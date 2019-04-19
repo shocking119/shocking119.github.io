@@ -10,6 +10,11 @@ type: page
 {:toc}
 
 ## 工具
+
+* [QR_generator](http://qrenco.de)
+    
+        - printf "I am Utachi" | curl -F-=\<- qrenco.de
+
 * [linux Teminal 录制工具，字符级](https://asciinema.org)
     
 * [box-shadow generator](http://www.cssmatic.com/box-shadow)
