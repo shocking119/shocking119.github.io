@@ -23,9 +23,9 @@ type: page
   
 * [CSS Generators -CSSREFLEX](http://www.cssreflex.com/css-generators/)
 
-- [tiny png：在线压缩png、jpg](https://tinypng.com/)
+* [Tiny png：在线压缩png、jpg](https://tinypng.com/)
 
-* [sm.ms：api图床](https://sm.ms/)
+* [Sm.ms：api图床](https://sm.ms/)
 
 * [Unix 时间戳 Unix timestamp](http://tool.chinaz.com/Tools/unixtime.aspx)
 
