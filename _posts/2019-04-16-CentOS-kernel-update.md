@@ -36,7 +36,7 @@ make clean && make mrproper
 * 方法1：复制当前的内核配置文件
 ````bash
 cp /boot/config-3.10.0-327.13.1.el7.x86_64 .config
-sh -c 'yes "" | make oldconfig'
+sh -c ' echo "\r" | make oldconfig '
 ````
 * 方法2：自定义选单生成
 ````bash
