@@ -10,42 +10,30 @@ type: page
 {:toc}
 
 ## 工具
-* [asciinema](https://asciinema.org)
-    linux Teminal 录制工具，字符级别非常精小
+* [linux Teminal 录制工具，字符级](https://asciinema.org)
+
+    
 
 * [box-shadow generator](http://www.cssmatic.com/box-shadow)
 
-    生成 box-shadow 的工具。
+* [gradient-generator：渐变生成器](http://www.cssmatic.com/gradient-generator)
 
-* [gradient-generator](http://www.cssmatic.com/gradient-generator)
+   。
 
-    渐变生成器。
-
-* [Ultimate CSS Gradient Generator](http://www.colorzilla.com/gradient-editor/)
-
-    也是渐变生成器
 
 * [CSS Generators -CSSREFLEX](http://www.cssreflex.com/css-generators/)
 
-    CSS3 生成器
 
-- [tiny png](https://tinypng.com/)
+- [tiny png：在线压缩png、jpg](https://tinypng.com/)
 
-    用于压缩 png 或 jpg 的在线工具
 
-* [图床 https://sm.ms/](https://sm.ms/)
-
-    有 API 可用。
-
-* [新浪微博图床 Chrome扩展](https://github.com/Suxiaogang/WeiboPicBed)
+* [sm.ms：api图床](https://sm.ms/)
 
 * [Unix 时间戳 Unix timestamp](http://tool.chinaz.com/Tools/unixtime.aspx)
 
-- [在线正则表达式匹配](https://regex101.com/)
-    - 这个功能更强大一点，能清楚的区分出贪婪和懒惰正则。
-- [http://regexr.com/](http://regexr.com/)
-- [google fonts](https://fonts.google.com/)
-  - [Google Fonts 加速代理](https://fengmk2.com/blog/2016/google-fonts-mirror)
+* [在线正则表达式匹配](https://regex101.com/) 
+
+* [Google Fonts 加速代理](https://fengmk2.com/blog/2016/google-fonts-mirror)
 
 ## 编程语言
 
