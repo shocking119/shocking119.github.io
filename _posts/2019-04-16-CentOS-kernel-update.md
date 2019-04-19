@@ -37,11 +37,13 @@ make clean && make mrproper
 ````bash
 cp /boot/config-3.10.0-327.13.1.el7.x86_64 .config
 ````
-* 方法2：由内核默认配置&自定义选单生成
+* 方法2：自定义选单生成
 ````bash
+#待编译目录下执行
+touch .config && make localmodconfig
 make menuconfig
 ````
-这个方法也是引用了boot目录下默认的配置文件作文参考，个别字段会有增删
+如果不使用"touch .config && make localmodconfig"则引用了boot目录下默认的配置文件作为默认选项，个别字段会有增删
 **高级配置**
 
 y 是启用, n 是禁用, m 是需要时启用. 
