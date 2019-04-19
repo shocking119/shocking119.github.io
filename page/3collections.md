@@ -11,21 +11,14 @@ type: page
 
 ## 工具
 * [linux Teminal 录制工具，字符级](https://asciinema.org)
-
     
-
 * [box-shadow generator](http://www.cssmatic.com/box-shadow)
 
 * [gradient-generator：渐变生成器](http://www.cssmatic.com/gradient-generator)
-
-   。
-
-
+  
 * [CSS Generators -CSSREFLEX](http://www.cssreflex.com/css-generators/)
 
-
 - [tiny png：在线压缩png、jpg](https://tinypng.com/)
-
 
 * [sm.ms：api图床](https://sm.ms/)
 
