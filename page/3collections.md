@@ -55,7 +55,7 @@ type: page
 
 ### 收藏的链接
 
-* [Java历史版本](https://www.oracle.com/technetwork/cn/java/javase/downloads/java-archive-javase8-2177648-zhs.html)
+* [Java历史版本](https://www.oracle.com/technetwork/cn/java/archive-139210-zhs.html)
 ### NodeJS
 
 * [七天学会NodeJS -Nanqiao Deng](https://nqdeng.github.io/7-days-nodejs)
