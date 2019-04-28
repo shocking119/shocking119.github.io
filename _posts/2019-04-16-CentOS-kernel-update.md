@@ -2,7 +2,7 @@
 layout: post
 title:  "CentOS 7 源码升级内核"
 categories: Linux
-tags:  linux kernel kernel-4.18.4 centos7  
+tags:  linux kernel  centos7  
 author: Utachi
 ---
 
