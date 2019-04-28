@@ -31,6 +31,11 @@ cd  linux-4.18.4
 ````bash
 make clean && make mrproper
 ````
+
+
+
+
+
 # 内核配置
 
 * 方法1：复制当前的内核配置文件
