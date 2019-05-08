@@ -18,7 +18,7 @@ type: page
 ## 联系我
 
 * GitHub：[shockingdawn](https://github.com/shockingdawn)
-* email：shockingdawn@outlook.com
+* email：shocking163@163.com
 * [Weibo](http://weibo.com/)
 
 
