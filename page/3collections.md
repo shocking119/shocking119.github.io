@@ -56,7 +56,12 @@ type: page
 ### 收藏的链接
 
 * [Java历史版本](https://www.oracle.com/technetwork/cn/java/archive-139210-zhs.html)
+* [阳明的博客](https://www.qikqiak.com/k8s-book/)
+
+
+
 ### NodeJS
+
 
 * [七天学会NodeJS -Nanqiao Deng](https://nqdeng.github.io/7-days-nodejs)
 
