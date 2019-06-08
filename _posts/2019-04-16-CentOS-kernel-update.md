@@ -26,7 +26,7 @@ wget https://mirrors.aliyun.com/linux-kernel/v4.x/linux-4.18.4.tar.gz
 tar zxvf  linux-4.18.4.tar.gz
 cd  linux-4.18.4
 ````
-确保内核编译目录树干净，执行
+确保内核编译目录树干净，执行:
 
 ````bash
 make clean && make mrproper
