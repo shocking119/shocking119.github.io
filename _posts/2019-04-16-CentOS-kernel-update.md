@@ -78,9 +78,7 @@ awk -F \' '$1=="menuentry " {print i++ " : " $2}' /etc/grub2.cfg
     1 : CentOS Linux (3.10.0-693.el7.x86_64) 7 (Core)
     2 : CentOS Linux (0-rescue-a6c51d4e386e4d5e9bf6422748d53480) 7 (Core)
 
-
-grub2-set-default 0                 
-                  #设置默认启动项。
+grub2-set-default 0     #设置默认启动项。
 grub2-editenv list
 
 ````
