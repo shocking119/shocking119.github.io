@@ -1,8 +1,8 @@
 ---
 layout: post
-title:  "CentOS 7 源码升级内核"
+title:  "30分钟部署Kubernetes集群"
 categories: Linux
-tags:  linux kernel  centos7  
+tags:  k8s  
 author: Utachi
 ---
 
