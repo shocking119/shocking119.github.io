@@ -144,7 +144,7 @@ kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/a70459be008450
 
 确保能够访问到quay.io这个registery。
 
-如果下载失败，可以改成这个镜像地址：utachi/flannel:v0.11.0-amd64
+如果下载失败，可以改成这个镜像地址：utachi/flannel:latest
 
 ## 7. 加入Kubernetes Node
 
@@ -175,7 +175,7 @@ kubectl get pod,svc
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v1.10.1/src/deploy/recommended/kubernetes-dashboard.yaml
 ````
 
-默认镜像国内无法访问，修改镜像地址为： utachi/kubernetes-dashboard-amd64:v1.10.1
+默认镜像国内无法访问，修改镜像地址为： utachi/kubernetes-dashboard-amd64:latest
 
 默认Dashboard只能集群内部访问，修改Service为NodePort类型，暴露到外部：
 
