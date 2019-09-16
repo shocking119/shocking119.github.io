@@ -61,9 +61,9 @@ $ kubeadm join <Master节点的IP和端口 >
 
 添加主机名与IP对应关系（记得设置主机名）：
 # cat /etc/hosts
-192.168.31.61 k8s-master
-192.168.31.62 k8s-node1
-192.168.31.63 k8s-node2
+10.10.10.120 k8s-master
+10.10.10.121 k8s-node1
+10.10.10.122 k8s-node2
 
 将桥接的IPv4流量传递到iptables的链：
 # cat > /etc/sysctl.d/k8s.conf << EOF
@@ -112,11 +112,11 @@ $ systemctl enable kubelet
 
 ## 5. 部署Kubernetes Master
 
-在192.168.31.63（Master）执行。
+在10.10.10.122（Master）执行。
 
 ````bash
 $ kubeadm init \
-  --apiserver-advertise-address=192.168.31.61 \
+  --apiserver-advertise-address=10.10.10.120 \
   --image-repository registry.aliyuncs.com/google_containers \
   --kubernetes-version v1.15.0 \
   --service-cidr=10.1.0.0/16 \
@@ -151,7 +151,7 @@ $ kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/a70459be0084
 向集群添加新节点，执行在kubeadm init输出的kubeadm join命令：
 
 ````bash
-$ kubeadm join 192.168.31.61:6443 --token esce21.q6hetwm8si29qxwn \
+$ kubeadm join 10.10.10.120:6443 --token esce21.q6hetwm8si29qxwn \
     --discovery-token-ca-cert-hash sha256:00603a05805807501d7181c3d60b478788408cfe6cedefedb1f97569708be9c5
 ````
 
