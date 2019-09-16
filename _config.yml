@@ -9,14 +9,14 @@
 title: 云枢
 brief-intro: Ops Engineer
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://shocking119.github.io" # the base hostname & protocol for your site
+url: "https://shockingdawn.github.io" # the base hostname & protocol for your site
 
 permalink: /:year/:month/:day/:title/
 
 # other links
 twitter_username:
 facebook_username:
-github_username: shocking119
+github_username: shockingdawn
 email: shocking163@163.com
 weibo_username: 
 zhihu_username: 
