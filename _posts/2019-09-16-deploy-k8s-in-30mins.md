@@ -39,38 +39,38 @@ $ kubeadm join <Master节点的IP和端口 >
 4. 部署 Kubernetes Node，将节点加入Kubernetes集群中
 5. 部署Dashboard Web页面，可视化查看Kubernetes资源
 
+
+
+
+
+
 ## 3. 准备环境
 
 ````bash
 关闭防火墙：
-$ systemctl stop firewalld
-$ systemctl disable firewalld
+# systemctl stop firewalld
+# systemctl disable firewalld
 
 关闭selinux：
-$ sed -i 's/enforcing/disabled/' /etc/selinux/config 
-$ setenforce 0
+# sed -i 's/enforcing/disabled/' /etc/selinux/config 
+# setenforce 0
 
 关闭swap：
-$ swapoff -a  $ 临时
-$ vim /etc/fstab  $ 永久
+# swapoff -a  
+# vim /etc/fstab  
 
 添加主机名与IP对应关系（记得设置主机名）：
-$ cat /etc/hosts
+# cat /etc/hosts
 192.168.31.61 k8s-master
 192.168.31.62 k8s-node1
 192.168.31.63 k8s-node2
 
-
-
-
-
-
 将桥接的IPv4流量传递到iptables的链：
-$ cat > /etc/sysctl.d/k8s.conf << EOF
+# cat > /etc/sysctl.d/k8s.conf << EOF
 net.bridge.bridge-nf-call-ip6tables = 1
 net.bridge.bridge-nf-call-iptables = 1
 EOF
-$ sysctl --system
+# sysctl --system
 ````
 
 ## 4. 所有节点安装Docker/kubeadm/kubelet
