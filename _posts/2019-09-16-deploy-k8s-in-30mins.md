@@ -15,10 +15,10 @@ kubeadm是官方社区推出的一个用于快速部署kubernetes集群的工具
 
 ````bash
 # 创建一个 Master 节点
-$ kubeadm init
+kubeadm init
 
 # 将一个 Node 节点加入到当前集群中
-$ kubeadm join <Master节点的IP和端口 >
+kubeadm join <Master节点的IP和端口 >
 ````
 
 ## 1. 安装要求
@@ -82,10 +82,10 @@ Kubernetes默认CRI（容器运行时）为Docker，因此先安装Docker。
 ### 4.1 安装Docker
 
 ````bash
-$ wget https://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo -O /etc/yum.repos.d/docker-ce.repo
-$ yum -y install docker-ce-18.06.1.ce-3.el7
-$ systemctl enable docker && systemctl start docker
-$ docker --version
+wget https://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo -O /etc/yum.repos.d/docker-ce.repo
+yum -y install docker-ce-18.06.1.ce-3.el7
+systemctl enable docker && systemctl start docker
+docker --version
 Docker version 18.06.1-ce, build e68fc7a
 ````
 
@@ -108,8 +108,8 @@ EOF
 由于版本更新频繁，这里指定版本号部署：
 
 ````bash
-$ yum install -y kubelet-1.15.0 kubeadm-1.15.0 kubectl-1.15.0
-$ systemctl enable kubelet
+yum install -y kubelet-1.15.0 kubeadm-1.15.0 kubectl-1.15.0
+systemctl enable kubelet
 ````
 
 ## 5. 部署Kubernetes Master
@@ -117,7 +117,7 @@ $ systemctl enable kubelet
 在10.10.10.122（Master）执行。
 
 ````bash
-$ kubeadm init \
+kubeadm init \
   --apiserver-advertise-address=10.10.10.120 \
   --image-repository registry.aliyuncs.com/google_containers \
   --kubernetes-version v1.15.0 \
@@ -133,13 +133,13 @@ $ kubeadm init \
 mkdir -p $HOME/.kube
 sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
 sudo chown $(id -u):$(id -g) $HOME/.kube/config
-$ kubectl get nodes
+kubectl get nodes
 ````
 
 ## 6. 安装Pod网络插件（CNI）
 
 ````bash
-$ kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/a70459be0084506e4ec919aa1c114638878db11b/Documentation/kube-flannel.yml
+kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/a70459be0084506e4ec919aa1c114638878db11b/Documentation/kube-flannel.yml
 ````
 
 确保能够访问到quay.io这个registery。
@@ -153,7 +153,7 @@ $ kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/a70459be0084
 向集群添加新节点，执行在kubeadm init输出的kubeadm join命令：
 
 ````bash
-$ kubeadm join 10.10.10.120:6443 --token esce21.q6hetwm8si29qxwn \
+kubeadm join 10.10.10.120:6443 --token esce21.q6hetwm8si29qxwn \
     --discovery-token-ca-cert-hash sha256:00603a05805807501d7181c3d60b478788408cfe6cedefedb1f97569708be9c5
 ````
 
@@ -162,9 +162,9 @@ $ kubeadm join 10.10.10.120:6443 --token esce21.q6hetwm8si29qxwn \
 在Kubernetes集群中创建一个pod，验证是否正常运行：
 
 ````bash
-$ kubectl create deployment nginx --image=nginx
-$ kubectl expose deployment nginx --port=80 --type=NodePort
-$ kubectl get pod,svc
+kubectl create deployment nginx --image=nginx
+kubectl expose deployment nginx --port=80 --type=NodePort
+kubectl get pod,svc
 ````
 
 访问地址：http://NodeIP:Port  
@@ -172,7 +172,7 @@ $ kubectl get pod,svc
 ## 9. 部署 Dashboard
 
 ````bash
-$ kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v1.10.1/src/deploy/recommended/kubernetes-dashboard.yaml
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v1.10.1/src/deploy/recommended/kubernetes-dashboard.yaml
 ````
 
 默认镜像国内无法访问，修改镜像地址为： lizhenliang/kubernetes-dashboard-amd64:v1.10.1
@@ -197,15 +197,15 @@ spec:
     k8s-app: kubernetes-dashboard
 ````
 ````bash
-$ kubectl apply -f kubernetes-dashboard.yaml
+kubectl apply -f kubernetes-dashboard.yaml
 ````
 访问地址：http://NodeIP:30001
 
 创建service account并绑定默认cluster-admin管理员集群角色：
 
 ````bash
-$ kubectl create serviceaccount dashboard-admin -n kube-system
-$ kubectl create clusterrolebinding dashboard-admin --clusterrole=cluster-admin --serviceaccount=kube-system:dashboard-admin
-$ kubectl describe secrets -n kube-system $(kubectl -n kube-system get secret | awk '/dashboard-admin/{print $1}')
+kubectl create serviceaccount dashboard-admin -n kube-system
+kubectl create clusterrolebinding dashboard-admin --clusterrole=cluster-admin --serviceaccount=kube-system:dashboard-admin
+kubectl describe secrets -n kube-system $(kubectl -n kube-system get secret | awk '/dashboard-admin/{print $1}')
 ````
 使用输出的token登录Dashboard。
