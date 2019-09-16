@@ -1,4 +1,4 @@
----
+git---
 layout: post
 title:  "基于rpm包制作本地yum仓库"
 categories: Linux
@@ -95,64 +95,39 @@ yum clean all && yum makecache
 ## 阿里云yum源
 
 #aliyun base
-
+````bash
 [base]
-
 name=CentOS-$releasever - Base - mirrors.aliyun.com
-
 failovermethod=priority
-
 baseurl=http://mirrors.aliyun.com/centos/$releasever/os/$basearch/
-
 gpgcheck=0
-
 enabled=1
 
 [epel]
-
 name=Extra Packages for Enterprise Linux $releasever - $basearch - mirrors.aliyun.com
-
 baseurl=http://mirrors.aliyun.com/epel/$releasever/$basearch
-
 failovermethod=priority
-
 gpgcheck=0
-
 enabled=1
-
 #released updates
 
 [updates]
-
 name=CentOS-$releasever - Updates -mirrors.aliyun.com
-
 failovermethod=priority
-
 baseurl=http://mirrors.aliyun.com/centos/$releasever/updates/$basearch/
-
 enabled=1
-
 gpgcheck=0
 
 [extras]
-
 name=CentOS-$releasever - Extras - mirrors.aliyun.com
-
 failovermethod=priority
-
 baseurl=http://mirrors.aliyun.com/centos/$releasever/extras/$basearch/
-
 enabled=0
-
 gpgcheck=0
-
 
 [qemu-ev]
-
 name=CentOS-$releasever - QEMU EV
-
 baseurl=http://mirrors.aliyun.com/centos/$releasever/virt/$basearch/kvm-common/
-
 gpgcheck=0
-
 enabled=0
+````
