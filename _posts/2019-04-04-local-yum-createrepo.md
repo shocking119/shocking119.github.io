@@ -1,4 +1,4 @@
-git---
+---
 layout: post
 title:  "基于rpm包制作本地yum仓库"
 categories: Linux
