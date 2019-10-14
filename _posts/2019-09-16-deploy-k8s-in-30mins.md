@@ -187,10 +187,9 @@ Country Name (2 letter code) [AU]: CN
 A challenge password []:
 ...
 #生成SSL证书
-
 openssl x509 -req -sha256 -days 365 -in dashboard.csr -signkey dashboard.key -out dashboard.crt
 
-#将dashboard.crt 、 dashboard.key存放于$HOME/certs目录下
+#将dashboard.crt 、 dashboard.key存放于$HOME/certs目录下然后创建证书管理服务：
 kubectl create secret generic kubernetes-dashboard-certs --from-file=$HOME/certs -n kubernetes-dashboard
 ````
 
@@ -203,7 +202,7 @@ kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v1.10.1/
 默认镜像国内无法访问，修改阿里云镜像地址为： registry.cn-hangzhou.aliyuncs.com/google_containers/kubernetes-dashboard-amd64:v1.10.1
 
 ### 暴露服务
-默认Dashboard只能集群内部访问，修改Service为NodePort类型，暴露到外部：
+默认Dashboard只能集群内部访问，修改Service为NodePort类型，暴露到外部：修改kubernetes-dashboard.yaml
 
 ````bash
 ......
