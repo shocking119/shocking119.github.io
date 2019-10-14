@@ -92,7 +92,7 @@ docker --version
 ### 4.2 添加阿里云YUM软件源
 
 ````bash
-$ cat > /etc/yum.repos.d/kubernetes.repo << EOF
+cat > /etc/yum.repos.d/kubernetes.repo << EOF
 [kubernetes]
 name=Kubernetes
 baseurl=https://mirrors.aliyun.com/kubernetes/yum/repos/kubernetes-el7-x86_64
@@ -171,15 +171,45 @@ kubectl get pod,svc
 
 ## 9. 部署 Dashboard
 
+### 自签证书
+如果不执行自签证书这一步，只有firefox浏览器可以打开dashboard。
+````bash
+#生成私钥和证书标识
+openssl genrsa -des3 -passout pass:x -out dashboard.pass.key 2048
+...
+openssl rsa -passin pass:x -in dashboard.pass.key -out dashboard.key
+# Writing RSA key
+rm -f dashboard.pass.key
+openssl req -new -key dashboard.key -out dashboard.csr
+...
+Country Name (2 letter code) [AU]: CN
+...
+A challenge password []:
+...
+#生成SSL证书
+
+openssl x509 -req -sha256 -days 365 -in dashboard.csr -signkey dashboard.key -out dashboard.crt
+
+#将dashboard.crt 、 dashboard.key存放于$HOME/certs目录下
+kubectl create secret generic kubernetes-dashboard-certs --from-file=$HOME/certs -n kubernetes-dashboard
+````
+
+### 获取yaml
+
 ````bash
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v1.10.1/src/deploy/recommended/kubernetes-dashboard.yaml
 ````
 
-默认镜像国内无法访问，修改镜像地址为： utachi/kubernetes-dashboard-amd64:latest
+默认镜像国内无法访问，修改阿里云镜像地址为： registry.cn-hangzhou.aliyuncs.com/google_containers/kubernetes-dashboard-amd64:v1.10.1
 
+### 暴露服务
 默认Dashboard只能集群内部访问，修改Service为NodePort类型，暴露到外部：
 
 ````bash
+......
+---
+# ------------------- Dashboard Service ------------------- #
+
 kind: Service
 apiVersion: v1
 metadata:
@@ -188,24 +218,58 @@ metadata:
   name: kubernetes-dashboard
   namespace: kube-system
 spec:
-  type: NodePort
+  type: NodePort       #增加type: NodePort
   ports:
     - port: 443
       targetPort: 8443
-      nodePort: 30001
+      nodePort: 30000  #增加nodePort: 30000
   selector:
     k8s-app: kubernetes-dashboard
+
 ````
 ````bash
 kubectl apply -f kubernetes-dashboard.yaml
+#也可通过执行如下命令修改
+kubectl -n kube-system edit service kubernetes-dashboard
 ````
-访问地址：http://NodeIP:30001
+访问地址：http://NodeIP:30000
 
+### 构建管理员
 创建service account并绑定默认cluster-admin管理员集群角色：
 
 ````bash
+#方法1
 kubectl create serviceaccount dashboard-admin -n kube-system
 kubectl create clusterrolebinding dashboard-admin --clusterrole=cluster-admin --serviceaccount=kube-system:dashboard-admin
-kubectl describe secrets -n kube-system $(kubectl -n kube-system get secret | awk '/dashboard-admin/{print $1}')
+````
+````bash
+#方法2（官方文档）
+#创建dashboard-adminuser.yaml
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: admin-user
+  namespace: kube-system
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: admin-user
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: cluster-admin
+subjects:
+- kind: ServiceAccount
+  name: admin-user
+  namespace: kube-system
+
+#应用yaml
+kubectl apply -f dashboard-adminuser.yaml
+````
+### 获取token
+````bash
+#获取token
+kubectl describe secrets -n kube-system $(kubectl -n kube-system get secret | awk '/admin-user/{print $1}')
 ````
 使用输出的token登录Dashboard。
