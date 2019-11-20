@@ -114,7 +114,7 @@ systemctl enable kubelet
 
 ## 5. 部署Kubernetes Master
 
-在10.10.10.122（Master）执行。
+在10.10.10.120（Master）执行。
 
 ````bash
 kubeadm init \
@@ -148,7 +148,7 @@ kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/a70459be008450
 
 ## 7. 加入Kubernetes Node
 
-在192.168.31.65/66（Node）执行。
+在10.10.10.121/10.10.10.122（Node）执行。
 
 向集群添加新节点，执行在kubeadm init输出的kubeadm join命令：
 
