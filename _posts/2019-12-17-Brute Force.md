@@ -9,12 +9,12 @@ author: Utachi
 * content
 {:toc}
 
-#发现对象
+# 发现对象
 某环境中，管理员忘记了网关密码，我过去帮忙，脸上AP后发现自己的电脑DHCP获取了IP地址，且能发现网关是192.168.0.252
 
-#嗅探
+# 嗅探
 ```bash
-root@kali:/tmp#  nmap   --data-length 24 -T paranoid   --max-parallelism 10 -PN -f -D 10.1.20.5,RND:5,ME  -n  -sS   192.168.0.252
+root@kali:/tmp#  nmap -sV 192.168.0.252
 
 Starting Nmap 7.70 ( https://nmap.org ) at 2019-12-17 14:54 CST
 Nmap scan report for 192.168.0.252
@@ -31,9 +31,15 @@ Service detection performed. Please report any incorrect results at https://nmap
 Nmap done: 1 IP address (1 host up) scanned in 159.83 seconds
 
 ```
+
+
+
+
+
+
 登录IP地址以后会跳转到http://192.168.0.252/login.asp，只需要填密码
 
-#简单测试
+# 简单测试
 
 填入随机密码123456后跳转到http://192.168.0.252/login.asp#pwdError
 看来还需要看下提交的表单参数
