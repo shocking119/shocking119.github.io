@@ -10,7 +10,7 @@ author: Utachi
 {:toc}
 
 # 发现对象
-某环境中，管理员离职太久已经找不到网关的管理方式，我过去帮忙，连上AP后发现自己的电脑DHCP获取了IP地址，且能发现网关是192.168.0.252
+某环境中，管理员离职太久已经找不到网关的管理方式(人也换电话了，手动笑哭)，我过去帮忙，连上AP后发现自己的电脑DHCP获取了IP地址，且能发现网关是192.168.0.252
 
 # 嗅探
 ```bash
@@ -154,15 +154,15 @@ Hydra (https://github.com/vanhauser-thc/thc-hydra) starting at 2019-12-17 15:44:
 [VERBOSE] Page redirected to http://192.168.0.252/login.asp#pwdError
 [VERBOSE] Page redirected to http://192.168.0.252/login.asp#pwdError
 [VERBOSE] Page redirected to http://192.168.0.252/login.asp#pwdError
-[80][http-post-form] host: 192.168.0.252   login: admin   password: QWRtaW4yMDE4
+[80][http-post-form] host: 192.168.0.252   login: admin   password: QWRtaW5fbHhAMjAxNw==
 [STATUS] attack finished for 192.168.0.252 (valid pair found)
 1 of 1 target successfully completed, 1 valid password found
 Hydra (https://github.com/vanhauser-thc/thc-hydra) finished at 2019-12-17 15:54:15
 
 
 #解密base64字串
-root@kali:/tmp# echo "QWRtaW4yMDE4"|base64 -d
-Admin2018
+root@kali:/tmp# echo "QWRtaW5fbHhAMjAxNw=="|base64 -d
+Admin_lx@2017
 
 ```
 # 舒服了
