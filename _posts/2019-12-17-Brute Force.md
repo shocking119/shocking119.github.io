@@ -90,6 +90,8 @@ http://192.168.0.252/login/Auth:username=admin&password=`[password]`
 
 ```bash
 root@kali:/tmp# cp /usr/share/wordlists/fern-wifi/common.txt  ./password.txt
+#user字段默认是admin，则只写一个文件就好
+root@kali:/tmp# echo "admin" > /tmp/user.txt
 
 cat > tans.sh << EOF 
 While_read_LINE(){
