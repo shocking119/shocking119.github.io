@@ -52,6 +52,12 @@ Nmap done: 1 IP address (1 host up) scanned in 80.69 seconds
 
 
 # 查找可利用漏洞
+
+
+
+
+
+
 ```bash
 msf5 > search smb
 
