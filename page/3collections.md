@@ -10,6 +10,7 @@ type: page
 {:toc}
 
 ## 工具
+* [XmanagerPowerSuite](https://www.cnblogs.com/selier/p/9649064.html)
 
 * [QR_generator](http://qrenco.de)
     
