@@ -31,8 +31,8 @@ CentOS Linux release 7.2.1511 (Core)
 * 下载并安装jdk
 
 ```bash
-wget https://download.oracle.com/otn/java/jdk/8u131-b11/d54c1d3a095b4ff2b6607d096fa80163/jdk-8u131-linux-x64.rpm?AuthParam=1546653417_8f345955cac417a6625ab6e4f27c79f6
-rpm -ivh jdk-8u131-linux-x64.rpm
+wget https://download.oracle.com/otn/java/jdk/8u221-b11/d54c1d3a095b4ff2b6607d096fa80163/jdk-8u221-linux-x64.rpm?AuthParam=1546653417_8f345955cac417a6625ab6e4f27c79f6
+rpm -ivh jdk-8u221-linux-x64.rpm
 ```
 
 
@@ -44,8 +44,9 @@ rpm -ivh jdk-8u131-linux-x64.rpm
 ```bash
 vi ~/.bashrc
 
-export JAVA_HOME=/usr/java/latest
-export PATH=$PATH:$JAVA_HOME/bin
+export JAVA_HOME='/usr/local/jdk1.8.0_221'
+export PATH=$JAVA_HOME/bin:$PATH
+export CLASSPATH=$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
 
 source ~/.bashrc
 ```
@@ -54,68 +55,29 @@ source ~/.bashrc
 
 ```bash
 [root@sky ~]# java -version
-java version "1.8.0_131"
-Java(TM) SE Runtime Environment (build 1.8.0_131-b11)
-Java HotSpot(TM) 64-Bit Server VM (build 25.131-b11, mixed mode)
+java version "1.8.0_221"
+Java(TM) SE Runtime Environment (build 1.8.0_221-b11)
+Java HotSpot(TM) 64-Bit Server VM (build 25.221-b11, mixed mode)
 ```
 
-### Install Jenkins
-* 下载：[http://updates.jenkins-ci.org/download/war/](http://updates.jenkins-ci.org/download/war/)
-* 启动：java -jar  jenkins.war(默认端口8080，可通过httpPort指定端口)
+### 3、Install Jenkins
+
+* 官方文档：[https://jenkins.io/zh/doc/book/installing/](https://jenkins.io/zh/doc/book/installing/)介绍了很多种方式，本文以war包方式说明
+* 下载war包：[https://mirrors.tuna.tsinghua.edu.cn/jenkins/war](https://mirrors.tuna.tsinghua.edu.cn/jenkins/war)
+* 启动：java -jar  jenkins.war(默认端口8080，可通过 ***--httpPort*** 指定端口；
+        比如：java -jar jenkins.war --httpPort=8090。
+        默认安装目录=$user.home/.jenkins  可通过修改环境变量 ***${JENKINS_HOME}*** 指定webroot)
+        
 
 ```bash
-Running from: /root/cicd/jenkins.war
-webroot: $user.home/.jenkins
+Running from: /root/jenkins-test/jenkins.war
+#当**${JENKINS_HOME}**为空值
+#webroot: $user.home/.jenkins
+#当**${JENKINS_HOME}**非空
+#webroot: EnvVars.masterEnvVars.get("JENKINS_HOME")
 Jan 05, 2019 6:18:33 AM org.eclipse.jetty.util.log.Log initialized
 INFO: Logging initialized @421ms to org.eclipse.jetty.util.log.JavaUtilLog
-Jan 05, 2019 6:18:33 AM winstone.Logger logInternal
-INFO: Beginning extraction from war file
-Jan 05, 2019 6:18:35 AM org.eclipse.jetty.server.handler.ContextHandler setContextPath
-WARNING: Empty contextPath
-Jan 05, 2019 6:18:35 AM org.eclipse.jetty.server.Server doStart
-INFO: jetty-9.4.z-SNAPSHOT; built: 2018-06-05T18:24:03.829Z; git: d5fc0523cfa96bfebfbda19606cad384d772f04c; jvm 1.8.0_131-b11
-Jan 05, 2019 6:18:36 AM org.eclipse.jetty.webapp.StandardDescriptorProcessor visitServlet
-INFO: NO JSP Support for /, did not find org.eclipse.jetty.jsp.JettyJspServlet
-Jan 05, 2019 6:18:36 AM org.eclipse.jetty.server.session.DefaultSessionIdManager doStart
-INFO: DefaultSessionIdManager workerName=node0
-Jan 05, 2019 6:18:36 AM org.eclipse.jetty.server.session.DefaultSessionIdManager doStart
-INFO: No SessionScavenger set, using defaults
-Jan 05, 2019 6:18:36 AM org.eclipse.jetty.server.session.HouseKeeper startScavenging
-INFO: node0 Scavenging every 600000ms
-Jenkins home directory: /root/.jenkins found at: $user.home/.jenkins
-Jan 05, 2019 6:18:36 AM org.eclipse.jetty.server.handler.ContextHandler doStart
-INFO: Started w.@59aa20b3{Jenkins v2.131,/,file:///root/.jenkins/war/,AVAILABLE}{/root/.jenkins/war}
-Jan 05, 2019 6:18:36 AM org.eclipse.jetty.server.AbstractConnector doStart
-INFO: Started ServerConnector@5c1bd44c{HTTP/1.1,[http/1.1]}{0.0.0.0:8080}
-Jan 05, 2019 6:18:36 AM org.eclipse.jetty.server.Server doStart
-INFO: Started @3499ms
-Jan 05, 2019 6:18:36 AM winstone.Logger logInternal
-INFO: Winstone Servlet Engine v4.0 running: controlPort=disabled
-Jan 05, 2019 6:18:38 AM jenkins.InitReactorRunner$1 onAttained
-INFO: Started initialization
-Jan 05, 2019 6:18:38 AM jenkins.InitReactorRunner$1 onAttained
-INFO: Listed all plugins
-Jan 05, 2019 6:18:40 AM jenkins.InitReactorRunner$1 onAttained
-INFO: Prepared all plugins
-Jan 05, 2019 6:18:40 AM jenkins.InitReactorRunner$1 onAttained
-INFO: Started all plugins
-Jan 05, 2019 6:18:40 AM jenkins.InitReactorRunner$1 onAttained
-INFO: Augmented all extensions
-Jan 05, 2019 6:18:41 AM jenkins.InitReactorRunner$1 onAttained
-INFO: Loaded all jobs
-Jan 05, 2019 6:18:41 AM hudson.model.AsyncPeriodicWork$1 run
-INFO: Started Download metadata
-Jan 05, 2019 6:18:42 AM org.springframework.context.support.AbstractApplicationContext prepareRefresh
-INFO: Refreshing org.springframework.web.context.support.StaticWebApplicationContext@1fce53d0: display name [Root WebApplicationContext]; startup date [Sat Jan 05 06:18:42 UTC 2019]; root of context hierarchy
-Jan 05, 2019 6:18:42 AM org.springframework.context.support.AbstractApplicationContext obtainFreshBeanFactory
-INFO: Bean factory for application context [org.springframework.web.context.support.StaticWebApplicationContext@1fce53d0]: org.springframework.beans.factory.support.DefaultListableBeanFactory@c7fb9e1
-Jan 05, 2019 6:18:42 AM org.springframework.beans.factory.support.DefaultListableBeanFactory preInstantiateSingletons
-INFO: Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@c7fb9e1: defining beans [authenticationManager]; root of factory hierarchy
-Jan 05, 2019 6:18:43 AM org.springframework.context.support.AbstractApplicationContext prepareRefresh
-INFO: Refreshing org.springframework.web.context.support.StaticWebApplicationContext@4e5f5340: display name [Root WebApplicationContext]; startup date [Sat Jan 05 06:18:43 UTC 2019]; root of context hierarchy
-Jan 05, 2019 6:18:43 AM org.springframework.context.support.AbstractApplicationContext obtainFreshBeanFactory
-INFO: Bean factory for application context [org.springframework.web.context.support.StaticWebApplicationContext@4e5f5340]: org.springframework.beans.factory.support.DefaultListableBeanFactory@4e3ecb46
-Jan 05, 2019 6:18:43 AM org.springframework.beans.factory.support.DefaultListableBeanFactory preInstantiateSingletons
+......[此处省略]
 INFO: Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@4e3ecb46: defining beans [filter,legacy]; root of factory hierarchy
 Jan 05, 2019 6:18:43 AM jenkins.install.SetupWizard init
 INFO: 
@@ -132,18 +94,43 @@ This may also be found at: /root/.jenkins/secrets/initialAdminPassword
 *************************************************************
 *************************************************************
 Jan 05, 2019 6:19:47 AM hudson.model.UpdateSite updateData
-INFO: Obtained the latest update center data file for UpdateSource default
-Jan 05, 2019 6:19:48 AM hudson.model.DownloadService$Downloadable load
-INFO: Obtained the updated data file for hudson.tasks.Maven.MavenInstaller
-Jan 05, 2019 6:19:48 AM hudson.model.AsyncPeriodicWork$1 run
-INFO: Finished Download metadata. 66,986 ms
-Jan 05, 2019 6:20:02 AM hudson.model.UpdateSite updateData
-INFO: Obtained the latest update center data file for UpdateSource default
-Jan 05, 2019 6:20:03 AM jenkins.InitReactorRunner$1 onAttained
+
+#若长时间卡在这里，需要配置插件反向代理
 INFO: Completed initialization
 Jan 05, 2019 6:20:03 AM hudson.WebAppMain$3 run
 INFO: Jenkins is fully up and running
 ```
+### 4、plugins反向代理
+* 修改 **${JENKINS_HOME}**/hudson.model.UpdateCenter.xml
+将默认的源替换为https://mirrors.tuna.tsinghua.edu.cn/jenkins/updates/update-center.json
+*  修改本地hosts解析
+```bash
+    echo '127.0.0.1 mirrors.jenkins-ci.org' >> /etc/hosts
+```
+*  配置Nginx反向代理
+```bash
+    #编辑/etc/nginx/conf.d/vhost-jenkins.conf
+    server
+    {
+        listen 80;
+        server_name mirrors.jenkins-ci.org;
 
+        location / {
+            proxy_redirect off;
+            proxy_pass https://mirrors.tuna.tsinghua.edu.cn/jenkins/;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_set_header Accept-Encoding "";
+            proxy_set_header Accept-Language "zh-CN";
+        }
+        index index.html index.htm;
 
-过一段时间更新。
+        #error_page   404   /404.html;
+        location ~ /\.
+        {
+            deny all;
+        }
+        #access_log   /usr/share/nginx/html/access.log;
+        #error_log    /usr/share/nginx/html/error.log;
+    }
+```
