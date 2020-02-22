@@ -105,32 +105,32 @@ INFO: Jenkins is fully up and running
 将默认的源替换为https://mirrors.tuna.tsinghua.edu.cn/jenkins/updates/update-center.json
 *  修改本地hosts解析
 ```bash
-    echo '127.0.0.1 mirrors.jenkins-ci.org' >> /etc/hosts
+echo '127.0.0.1 mirrors.jenkins-ci.org' >> /etc/hosts
 ```
 *  配置Nginx反向代理
 ```bash
-    #编辑/etc/nginx/conf.d/vhost-jenkins.conf
-    server
-    {
-        listen 80;
-        server_name mirrors.jenkins-ci.org;
+#编辑/etc/nginx/conf.d/vhost-jenkins.conf
+server{
+    listen 80;
+    server_name mirrors.jenkins-ci.org;
 
-        location / {
-            proxy_redirect off;
-            proxy_pass https://mirrors.tuna.tsinghua.edu.cn/jenkins/;
-            proxy_set_header X-Real-IP $remote_addr;
-            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-            proxy_set_header Accept-Encoding "";
-            proxy_set_header Accept-Language "zh-CN";
-        }
-        index index.html index.htm;
-
-        #error_page   404   /404.html;
-        location ~ /\.
-        {
-            deny all;
-        }
-        #access_log   /usr/share/nginx/html/access.log;
-        #error_log    /usr/share/nginx/html/error.log;
+    location / {
+        proxy_redirect off;
+        proxy_pass https://mirrors.tuna.tsinghua.edu.cn/jenkins/;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header Accept-Encoding "";
+        proxy_set_header Accept-Language "zh-CN";
     }
+    index index.html index.htm;
+
+    #error_page   404   /404.html;
+    location ~ /\.
+    {
+        deny all;
+    }
+    #access_log   /usr/share/nginx/html/access.log;
+    #error_log    /usr/share/nginx/html/error.log;
+}
 ```
+
