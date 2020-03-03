@@ -9,8 +9,6 @@ author: Utachi
 * content
 {:toc}
 
-
-
 # Harbor的部署 
 
 Harbor是Docker Images Registry Service系统，用于管理容器镜像，由VMVare中国团队开发。
