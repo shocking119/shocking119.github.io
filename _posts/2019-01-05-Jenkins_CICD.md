@@ -133,4 +133,8 @@ server{
     #error_log    /usr/share/nginx/html/error.log;
 }
 ```
+## 三、全局工具配置
+*  java
+* git
+* maven
 

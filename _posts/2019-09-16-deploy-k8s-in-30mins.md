@@ -149,7 +149,7 @@ kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/a70459be008450
 
 确保能够访问到quay.io这个registery。
 
-如果下载失败，可以改成这个镜像地址：utachi/flannel:latest
+如果下载失败，可以改成这个镜像地址：registry.cn-hangzhou.aliyuncs.com/gcr_mirror/flannel:0.11.0-amd64
 
 ## 7. 加入Kubernetes Node
 
