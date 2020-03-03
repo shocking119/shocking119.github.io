@@ -38,8 +38,10 @@ gem sources -a http://mirrors.aliyun.com/rubygems/
 
 gem sources -l
 ```
+
 * 安装RVM
 RVM（Ruby Version Manager ）是一款RVM的命令行工具，可以使用RVM轻松安装，管理Ruby版本。RVM包含了Ruby的版本管理和Gem库管理(gemset)
+
 ```bash
 curl -L https://get.rvm.io | bash -s stable
  ......[部分省略]
