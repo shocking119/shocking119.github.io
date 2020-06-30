@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "two ways to install Harbor"
+title:  "两种方式部署 Harbor"
 categories: Linux
 tags:  linux harbor 
 author: Utachi
